@@ -113,3 +113,4 @@ cdm() {
   cd "$1"
 }
 export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
+export EDITOR="nvim"

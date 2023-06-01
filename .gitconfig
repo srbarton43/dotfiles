@@ -1,0 +1,17 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+name = Samuel Barton
+	email = srbarton43@gmail.com
+	editor = nvim
+[init]
+	defaultBranch = main
+
+[mergetool "vimdiff"]
+  cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[merge]
+  tool = vimdiff
+
+[mergetool]
+  prompt = false
+  keepBackup = false
