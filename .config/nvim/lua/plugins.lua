@@ -63,12 +63,14 @@ return packer.startup(function(use)
   use { "SirVer/ultisnips", event = "InsertEnter" }
   use { "honza/vim-snippets", after = "ultisnips" }
 
+  -- for status line at bottom
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true },
     options = { theme = 'molokai' }
   }
 
+  -- for better syntax highlighting and lsp
   use {
         "nvim-treesitter/nvim-treesitter",
         event = "BufEnter",
@@ -78,21 +80,22 @@ return packer.startup(function(use)
 
   use { 'gelguy/wilder.nvim', } -- for autocomplete in cmd line
 
+  -- git commands in vim cmd line
   use {
     'tpope/vim-fugitive'
   }
 
+  -- git changes to left of line nums
   use {
     'lewis6991/gitsigns.nvim',
     config = function()
       require('gitsigns').setup({
-        numhl = true,
+        numhl = true, -- color numbers along with signs to left of them
       })
     end
   }
 
   -- autocomplete brackets and such
-
   use {
     "windwp/nvim-autopairs",
     config = function ()
@@ -107,6 +110,7 @@ return packer.startup(function(use)
     config = [[require('config.hlslens')]],
   }
 
+  -- for fuzzy file searching and rg macros
   use { "Yggdroot/LeaderF", cmd = "Leaderf", run = ":LeaderfInstallCExtension" }
 
   -- fancy start screen
@@ -114,6 +118,7 @@ return packer.startup(function(use)
     config = [[require('config.dashboard-nvim')]]
   }
 
+  -- exit insert mode using <j><k>
   use {'jdhao/better-escape.vim', event = 'InsertEnter'}
 
   -- Automatically set up your configuration after cloning packer.nvim
