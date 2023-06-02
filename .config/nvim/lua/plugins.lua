@@ -55,6 +55,7 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-buffer", after = "nvim-cmp" }
   use { "hrsh7th/cmp-omni", after = "nvim-cmp" }
   use { "quangnguyen30192/cmp-nvim-ultisnips", after = { "nvim-cmp", "ultisnips" } }
+  use { "hrsh7th/cmp-emoji", after = "nvim-cmp" }
 
   use { 'neovim/nvim-lspconfig', after = "cmp-nvim-lsp", config = [[require('config.lsp')]] }
 
@@ -76,6 +77,19 @@ return packer.startup(function(use)
       }
 
   use { 'gelguy/wilder.nvim', } -- for autocomplete in cmd line
+
+  use {
+    'tpope/vim-fugitive'
+  }
+
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup({
+        numhl = true,
+      })
+    end
+  }
 
   -- Show match number and index for searching
   use {
@@ -100,6 +114,12 @@ return packer.startup(function(use)
     require('packer').sync()
   end
 
+  require('monokai').setup({
+    palette = {
+      base2 = '#121212', -- make bg darker
+      green = '#86fa04', -- i like this green better
+    },
+  })
   require('lualine').setup()
   require('wilder').setup({modes = {':', '/', '?'}})
 

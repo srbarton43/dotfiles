@@ -1,4 +1,5 @@
 local options = {
+  termguicolors = true,
   conceallevel = 0,                        -- so that `` is visible in markdown files
   fileencoding = "utf-8",                  -- the encoding written to a file
   hlsearch = true,                         -- highlight all matches on previous search pattern
@@ -14,11 +15,22 @@ local options = {
   number = true,                           -- set numbered lines
   relativenumber = false,                  -- set relative numbered lines
   showmode = false,                        -- don't show '--insert' at bottom
+  showcmd = true,
 }
 
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+-- autocmds
+local api = vim.api
+
+-- go to last loc in a file
+api.nvim_create_autocmd(
+    "BufReadPost",
+    { command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]] }
+  )
+
 vim.opt.runtimepath:remove("/usr/share/vim/vimfiles")  -- separate vim plugins from neovim in case vim still in use
-vim.o.signcolumn = "number"
+vim.o.signcolumn = "yes"
+vim.g.mapleader = ','
