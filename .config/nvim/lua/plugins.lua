@@ -91,6 +91,14 @@ return packer.startup(function(use)
     end
   }
 
+  -- autocomplete brackets and such
+
+  use {
+    "windwp/nvim-autopairs",
+    config = function ()
+      require('nvim-autopairs').setup{}
+    end
+  }
   -- Show match number and index for searching
   use {
     "kevinhwang91/nvim-hlslens",
