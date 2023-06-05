@@ -7,10 +7,10 @@ name = Samuel Barton
 [init]
 	defaultBranch = main
 
-[mergetool "vimdiff"]
-  cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[mergetool "nvim"]
+  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
 [merge]
-  tool = vimdiff
+  tool = nvim
 
 [mergetool]
   prompt = false
