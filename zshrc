@@ -1,12 +1,12 @@
 # https://geoff.greer.fm/lscolors/
 export LSCOLORS=gxcxcxdxFxaDadabagacad
-LS_COLORS="di=36:ln=32:so=32:pi=33:ex=1;35:bd=30;1;43:cd=30;43:su=30;41:sg=30;46:tw=30;42:ow=30;43" 
+export LS_COLORS="di=36:ln=32:so=32:pi=33:ex=1;35:bd=30;1;43:cd=30;43:su=30;41:sg=30;46:tw=30;42:ow=30;43" 
 
 #### Autocomplete Case-insensitive #####
 zmodload -i zsh/complist
 autoload -Uz compinit && compinit
 unsetopt MENU_COMPLETE        # Don't automatically highlight first element of completion menu
-setopt AUTO_LIST            # Automatically list choices on ambiguous completion.
+setopt AUTO_MENU            # Automatically list choices on ambiguous completion.
 setopt COMPLETE_IN_WORD     # Complete from both ends of a word.
 setopt ALWAYS_TO_END
 
