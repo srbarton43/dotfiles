@@ -1,2 +1,3 @@
 config/nvim/plugin
 todo.txt
+*.DS_Store*

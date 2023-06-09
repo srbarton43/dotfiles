@@ -59,6 +59,7 @@ is_git() {
 setopt prompt_subst
 
 PROMPT='$(show_untracked)$(is_git)%F{cyan}[%~% ]%f%B$%b '
+RPROMPT="%F{red}%? 󰌑%f" # exit status to right
 
 ##### CMD History   #####
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
@@ -72,7 +73,9 @@ alias ez="exec zsh"
 
 ########## Aliases #############
 alias ls="ls -G"
+alias lsa="ls -a"
 alias ll="ls -alh"
+alias la="ls -Alh"
 alias l="ls -lh"
 alias py="python3"
 alias pip="pip3"
