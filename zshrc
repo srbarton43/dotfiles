@@ -32,7 +32,6 @@ zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f
 # go to pathname w/o 'cd'
 setopt autocd 
 
-
 ########## PROMPT ############
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
@@ -59,7 +58,7 @@ is_git() {
 setopt prompt_subst
 
 PROMPT='$(show_untracked)$(is_git)%F{cyan}[%~% ]%f%B$%b '
-RPROMPT="%F{red}%? 󰌑%f" # exit status to right
+RPROMPT="%B%F{red}%? 󰌑%f%b" # exit status to right
 
 ##### CMD History   #####
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
@@ -85,6 +84,7 @@ alias gittree="tree -a --gitignore -I .git"
 treeless(){ tree -C $1 | less -r; }
 # mkdir and cd into it
 cdm() { mkdir "$1"; cd "$1"; }
+substr_find() { find . -name "*$1*"; }
 
 ###### GIT Aliases ############
 alias gg="git status"
