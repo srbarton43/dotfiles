@@ -8,7 +8,7 @@ cdm() { mkdir "$1"; cd "$1"; }
 
 # find file with matching substring
 substr_find() {
-  find . -name "*zsh*" -maxdepth 3 -exec ls -Gdl {} \;
+  find . -name "*$1*" -maxdepth 3 -exec ls -Gdl {} \;
 }
 
 # file cmd with colored seperations
