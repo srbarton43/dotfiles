@@ -1,7 +1,7 @@
 ########## Aliases #############
 alias cl=clear
 alias '...'='cd ../../'
-alias -='cd -'
+alias -- -='cd -'
 alias ls="ls -G"
 alias lsa="ls -a"
 alias ll="ls -alh"
