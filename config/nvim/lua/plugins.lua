@@ -131,7 +131,7 @@ return packer.startup(function(use)
     local nvim_tmux_nav = require('nvim-tmux-navigation')
 
     nvim_tmux_nav.setup {
-      disable_when_zoomed = true       -- defaults to false
+      disable_when_zoomed = true -- defaults to false
     }
 
     vim.keymap.set('n', "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
@@ -158,6 +158,7 @@ return packer.startup(function(use)
   require('lualine').setup()
   require('wilder').setup({ modes = { ':', '/', '?' } })
   require('telescope').setup {
+    file_ignore_patterns = { ".git/.*", },
     defaults = {
       -- Default configuration for telescope goes here:
       -- config_key = value,
@@ -178,6 +179,20 @@ return packer.startup(function(use)
       -- }
       -- Now the picker_config_key will be applied every time you call this
       -- builtin picker
+      find_files = {
+        file_ignore_patterns = { ".git/.*", },
+        theme = "dropdown",
+        previewer = false,
+      },
+      oldfiles = {
+        file_ignore_patterns = { ".git/.*", },
+        theme = "dropdown",
+        previewer = false,
+      },
+      live_grep = {
+        file_ignore_patterns = { ".git/.*", },
+        theme = "dropdown",
+      }
     },
     extensions = {
       -- Your extension configuration goes here:

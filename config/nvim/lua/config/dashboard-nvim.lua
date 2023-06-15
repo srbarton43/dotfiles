@@ -23,19 +23,19 @@ conf.center = {
   {
     icon = "󰈞  ",
     desc = "Find  File                              ",
-    action = ":lua require('telescope.builtin').find_files{}",
+    action = ":Telescope find_files",
     key = "<Leader>ff",
   },
   {
     icon = "  ",
     desc = "Recently opened files                   ",
-    action = ":lua require('telescope.builtin').oldfiles{}",
+    action = ":Telescope oldfiles",
     key = "<Leader>fr",
   },
   {
     icon = "󱆃  ",
     desc = "Project grep                            ",
-    action = ":lua require('telescope.builtin').live_grep{}",
+    action = ":Telescope live_grep",
     key = "<Leader>fg",
   },
   {
