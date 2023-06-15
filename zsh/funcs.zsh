@@ -1,7 +1,7 @@
 ### FUNCTIONS #####
 
 # pipe tree cmd into less with colors
-treeless(){ tree -C $1 | less -r; }
+treel(){ tree -C $1 | less -r; }
 
 # mkdir and cd into it
 cdm() { mkdir "$1"; cd "$1"; }
