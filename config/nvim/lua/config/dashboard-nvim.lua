@@ -2,7 +2,7 @@ local api = vim.api
 local keymap = vim.keymap
 local dashboard = require("dashboard")
 
-conf = {}
+local conf = {}
 conf.header = {
   "                                                       ",
   "                                                       ",
@@ -23,19 +23,19 @@ conf.center = {
   {
     icon = "󰈞  ",
     desc = "Find  File                              ",
-    action = "Leaderf file --popup",
+    action = ":lua require('telescope.builtin').find_files{}",
     key = "<Leader>ff",
   },
   {
     icon = "  ",
     desc = "Recently opened files                   ",
-    action = "Leaderf mru --popup",
+    action = ":lua require('telescope.builtin').oldfiles{}",
     key = "<Leader>fr",
   },
   {
     icon = "󱆃  ",
     desc = "Project grep                            ",
-    action = "Leaderf rg --popup",
+    action = ":lua require('telescope.builtin').live_grep{}",
     key = "<Leader>fg",
   },
   {

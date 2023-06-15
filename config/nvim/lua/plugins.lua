@@ -1,9 +1,10 @@
 local fn = vim.fn
 
 -- Automatically install packer
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  PACKER_BOOTSTRAP = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
+    install_path })
   print("Installing packer close and reopen Neovim...")
 end
 
@@ -23,26 +24,26 @@ end
 
 -- Have packer use a popup window
 packer.init({
-    display = {
-      open_fn = function()
-        return require('packer.util').float({ border = 'single' })
-      end
-    }
+  display = {
+    open_fn = function()
+      return require('packer.util').float({ border = 'single' })
+    end
   }
+}
 )
 
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
   use 'wbthomason/packer.nvim' -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use "nvim-lua/popup.nvim"    -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/plenary.nvim"  -- Useful lua functions used ny lots of plugins
   use "tanvirtin/monokai.nvim" -- monokai themes
   use {
     "loctvl842/monokai-pro.nvim",
-   -- config = function()
-   --   require("monokai-pro").setup()
-   -- end
+    -- config = function()
+    --   require("monokai-pro").setup()
+    -- end
   }
 
   use { "onsails/lspkind-nvim", event = "VimEnter" } -- icons for auto complete
@@ -72,11 +73,11 @@ return packer.startup(function(use)
 
   -- for better syntax highlighting and lsp
   use {
-        "nvim-treesitter/nvim-treesitter",
-        event = "BufEnter",
-        run = ":TSUpdate",
-        config = [[require('config.treesitter')]],
-      }
+    "nvim-treesitter/nvim-treesitter",
+    event = "BufEnter",
+    run = ":TSUpdate",
+    config = [[require('config.treesitter')]],
+  }
 
   use { 'gelguy/wilder.nvim', } -- for autocomplete in cmd line
 
@@ -98,8 +99,8 @@ return packer.startup(function(use)
   -- autocomplete brackets and such
   use {
     "windwp/nvim-autopairs",
-    config = function ()
-      require('nvim-autopairs').setup{}
+    config = function()
+      require('nvim-autopairs').setup {}
     end
   }
   -- Show match number and index for searching
@@ -111,7 +112,11 @@ return packer.startup(function(use)
   }
 
   -- for fuzzy file searching and rg macros
-  use { "Yggdroot/LeaderF", cmd = "Leaderf", run = ":LeaderfInstallCExtension" }
+  use {
+    'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { { 'nvim-lua/plenary.nvim' } }
+  }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run =
+  'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
   -- fancy start screen
   use { "nvimdev/dashboard-nvim", event = "VimEnter",
@@ -119,25 +124,23 @@ return packer.startup(function(use)
   }
 
   -- exit insert mode using <j><k>
-  use {'jdhao/better-escape.vim', event = 'InsertEnter'}
+  use { 'jdhao/better-escape.vim', event = 'InsertEnter' }
 
   -- tmux navigation
   use { 'alexghergh/nvim-tmux-navigation', config = function()
+    local nvim_tmux_nav = require('nvim-tmux-navigation')
 
-        local nvim_tmux_nav = require('nvim-tmux-navigation')
+    nvim_tmux_nav.setup {
+      disable_when_zoomed = true       -- defaults to false
+    }
 
-        nvim_tmux_nav.setup {
-            disable_when_zoomed = true -- defaults to false
-        }
-
-        vim.keymap.set('n', "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
-        vim.keymap.set('n', "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
-        vim.keymap.set('n', "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
-        vim.keymap.set('n', "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
-        vim.keymap.set('n', "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
-        vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
-
-    end
+    vim.keymap.set('n', "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
+    vim.keymap.set('n', "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
+    vim.keymap.set('n', "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
+    vim.keymap.set('n', "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
+    vim.keymap.set('n', "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
+    vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
+  end
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
@@ -153,7 +156,44 @@ return packer.startup(function(use)
     },
   })
   require('lualine').setup()
-  require('wilder').setup({modes = {':', '/', '?'}})
-
+  require('wilder').setup({ modes = { ':', '/', '?' } })
+  require('telescope').setup {
+    defaults = {
+      -- Default configuration for telescope goes here:
+      -- config_key = value,
+      mappings = {
+        i = {
+          -- map actions.which_key to <C-h> (default: <C-/>)
+          -- actions.which_key shows the mappings for your picker,
+          -- e.g. git_{create, delete, ...}_branch for the git_branches picker
+          ["<C-h>"] = "which_key"
+        }
+      }
+    },
+    pickers = {
+      -- Default configuration for builtin pickers goes here:
+      -- picker_name = {
+      --   picker_config_key = value,
+      --   ...
+      -- }
+      -- Now the picker_config_key will be applied every time you call this
+      -- builtin picker
+    },
+    extensions = {
+      -- Your extension configuration goes here:
+      -- extension_name = {
+      --   extension_config_key = value,
+      -- }
+      -- please take a look at the readme of the extension you want to configure
+      fzf = {
+        fuzzy = true,                   -- false will only do exact matching
+        override_generic_sorter = true, -- override the generic sorter
+        override_file_sorter = true,    -- override the file sorter
+        case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+        -- the default case_mode is "smart_case"
+      }
+    }
+  }
+  require('telescope').load_extension('fzf')
+  require('config.telescope-conf')
 end)
-
