@@ -23,6 +23,7 @@ alias gall="git add ."
 alias gl="git log --graph --one-line"
 alias gd="git diff"
 alias gp="git push"
+alias gmt="git mergetool"
 
 #TEST#
 alias ez="exec zsh"
