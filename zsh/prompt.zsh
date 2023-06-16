@@ -2,7 +2,6 @@
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
-zstyle ':vcs_info:git:*' formats '%b'
 
 show_untracked() { 
   local STATUS=$(git status --porcelain 2> /dev/null | tail --lines=1)
@@ -15,7 +14,9 @@ show_untracked() {
 
 is_git() {
   if [[ -n $vcs_info_msg_0_ ]]; then
-    echo "%F{green}[${vcs_info_msg_0_}]%f"
+    branch=$(git symbolic-ref --quiet HEAD 2> /dev/null)
+    branch=${branch#refs/heads/}
+    echo "%F{green}[$branch]%f"
   else
     echo ""
   fi
