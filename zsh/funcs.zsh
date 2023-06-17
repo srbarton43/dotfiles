@@ -15,3 +15,20 @@ substr_find() {
 color_file() {
   file "$1" | sed -e 's/^/'"$(printf '\033[0;34m')"'/' -e 's/:/&'"$(printf '\033[0m')"'/'
 }
+
+## tmux aliases
+killw() {
+  if [[ "$TERM_PROGRAM" = tmux ]]; then
+    tmux killw
+  else
+    echo "not in tmux session"
+  fi
+}
+
+killp() {
+  if [[ "$TERM_PROGRAM" = tmux ]]; then
+    tmux killp
+  else
+    echo "not in tmux session"
+  fi
+}
