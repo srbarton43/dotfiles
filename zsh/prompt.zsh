@@ -14,8 +14,7 @@ show_untracked() {
 
 is_git() {
   if [[ -n $vcs_info_msg_0_ ]]; then
-    branch=$(git symbolic-ref --quiet HEAD 2> /dev/null)
-    branch=${branch#refs/heads/}
+    branch=$(git symbolic-ref --quiet HEAD 2> /dev/null) && branch=${branch#refs/heads/} || branch=$(git rev-parse --short HEAD 2> /dev/null)
     echo "%F{green}[$branch]%f"
   else
     echo ""
