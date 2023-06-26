@@ -181,6 +181,7 @@ return packer.startup(function(use)
       -- builtin picker
       find_files = {
         file_ignore_patterns = { ".git/.*", },
+        hidden = true,
         theme = "dropdown",
         previewer = false,
       },
