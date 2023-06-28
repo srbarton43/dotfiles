@@ -36,11 +36,13 @@ cmp.setup {
     { name = "path" }, -- for path completion
     { name = "buffer", keyword_length = 2 }, -- for buffer word completion
     { name = "emoji", insert = true }, -- emoji completion
+    { name = "latex_symbols",
+      option = {
+        strategy = 0,
+      },
+    },
   },
-  completion = {
-    keyword_length = 1,
-    completeopt = "menu,noselect",
-  },
+  completion = { keyword_length = 1, completeopt = "menu,noselect", },
   view = {
     entries = "custom",
   },
@@ -55,6 +57,7 @@ cmp.setup {
         buffer = "[Buffer]",
         emoji = "[Emoji]",
         omni = "[Omni]",
+        latex_symbols = "[LaTeX]"
       },
     },
   },
@@ -63,6 +66,7 @@ cmp.setup {
 cmp.setup.filetype("tex", {
   sources = {
     { name = "omni" },
+    { name = "latex_symbols",},
     { name = "ultisnips" }, -- For ultisnips user.
     { name = "buffer", keyword_length = 2 }, -- for buffer word completion
     { name = "path" }, -- for path completion

@@ -12,6 +12,7 @@ alias pip="pip3"
 alias gittree="tree -a --gitignore -I .git"
 alias grep="grep --color"
 alias file="color_file"
+alias skim='/Applications/Skim.app/Contents/MacOS/Skim'
 
 
 ###### GIT Aliases ############
