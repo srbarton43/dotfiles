@@ -143,6 +143,32 @@ return packer.startup(function(use)
   end
   }
 
+  use {
+    "nvim-neorg/neorg",
+    ft = "norg",
+    after = "nvim-treesitter", -- You may want to specify Telescope here as well
+    config = function()
+        require('neorg').setup {
+            load = {
+                ["core.defaults"] = {}, -- Loads default behaviour
+                ["core.concealer"] = {}, -- Adds pretty icons to your documents
+                ["core.dirman"] = { -- Manages Neorg workspaces
+                    config = {
+                        workspaces = {
+                            notes = "~/notes",
+                        },
+                    },
+                },
+            },
+        }
+    end,
+    run = "Neorg sync-parsers",
+    requires = "nvim-lua/plenary.nvim",
+  }
+  -- LaTeX
+  use { "lervag/vimtex" } -- essential for LaTeX; Vimscript
+  use { 'ckunte/latex-snippets-vim' }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
@@ -212,4 +238,28 @@ return packer.startup(function(use)
   }
   require('telescope').load_extension('fzf')
   require('config.telescope-conf')
+--  require('neorg').setup {
+--    -- Tell Neorg what modules to load
+--    load = {
+--      ["core.defaults"] = {}, -- Load all the default modules
+--      ["core.norg.concealer"] = {}, -- Allows for use of icons
+--      ["core.norg.dirman"] = { -- Manage your directories with Neorg
+--        config = {
+--          workspaces = {
+--            my_workspace = "~/neorg"
+--          }
+--        }
+--      }
+--    },
+--  }
+--
+--  local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
+--
+--  parser_configs.norg = {
+--    install_info = {
+--      url = "https://github.com/nvim-neorg/tree-sitter-norg",
+--      files = { "src/parser.c", "src/scanner.cc" },
+--      branch = "main"
+--    },
+--  }
 end)
