@@ -2,7 +2,7 @@
 -- http://manpages.ubuntu.com/manpages/trusty/man5/zathurarc.5.html
 vim.g['vimtex_mappings_prefix'] = ','
 vim.g['vimtex_view_method'] = 'skim'
-vim.g['vimtex_quickfix_mode'] =0
+vim.g['vimtex_quickfix_open_on_warning'] = 0
 
 -- Ignore mappings
 vim.g['vimtex_mappings_enabled'] = 1
@@ -21,6 +21,15 @@ vim.g['vimtex_log_ignore'] = ({
   'Overfull',
   'specifier changed to',
   'Token not allowed in a PDF string',
+})
+
+vim.g['vimtex_quickfix_ignore_filters'] = ({
+  'Underfull \\\\hbox',
+  'Overfull \\\\hbox',
+  'LaTeX Warning: .\\+ float specifier changed to',
+  'LaTeX hooks Warning',
+  'Package siunitx Warning: Detected the "physics" package:',
+  'Package hyperref Warning: Token not allowed in a PDF string',
 })
 
 vim.g['vimtex_context_pdf_viewer'] = 'skim'

@@ -55,14 +55,32 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-path", after = "nvim-cmp" }
   use { "hrsh7th/cmp-buffer", after = "nvim-cmp" }
   use { "hrsh7th/cmp-omni", after = "nvim-cmp" }
-  use { "quangnguyen30192/cmp-nvim-ultisnips", after = { "nvim-cmp", "ultisnips" } }
+  use { 'saadparwaiz1/cmp_luasnip', after = {"nvim-cmp", "LuaSnip"}, }
   use { "hrsh7th/cmp-emoji", after = "nvim-cmp" }
 
   use { 'neovim/nvim-lspconfig', after = "cmp-nvim-lsp", config = [[require('config.lsp')]] }
 
   -- Snippet engine and snippet template
-  use { "SirVer/ultisnips", event = "InsertEnter" }
-  use { "honza/vim-snippets", after = "ultisnips" }
+  use({
+    "L3MON4D3/LuaSnip",
+    -- follow latest release.
+    tag = "v<CurrentMajor>.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    -- install jsregexp (optional!:).
+    run = "make install_jsregexp"
+  })
+  use { "rafamadriz/friendly-snippets" }
+  use {
+    "iurimateus/luasnip-latex-snippets.nvim",
+    -- replace "lervag/vimtex" with "nvim-treesitter/nvim-treesitter" if you're
+    -- using treesitter.
+    requires = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
+    config = function()
+      require'luasnip-latex-snippets'.setup()
+      -- or setup({ use_treesitter = true })
+    end,
+    -- treesitter is required for markdown
+    ft = { "tex", "markdown" },
+  }
 
   -- for status line at bottom
   use {
@@ -238,6 +256,7 @@ return packer.startup(function(use)
   }
   require('telescope').load_extension('fzf')
   require('config.telescope-conf')
+  require("luasnip.loaders.from_vscode").lazy_load()
 --  require('neorg').setup {
 --    -- Tell Neorg what modules to load
 --    load = {

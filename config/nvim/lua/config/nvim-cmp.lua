@@ -1,13 +1,13 @@
 -- Setup nvim-cmp.
 local cmp = require("cmp")
 local lspkind = require("lspkind")
+local luasnip = require("luasnip")
 
 cmp.setup {
   snippet = {
     expand = function(args)
-      -- For `ultisnips` user.
-      vim.fn["UltiSnips#Anon"](args.body)
-    end,
+      luasnip.lsp_expand(args.body)
+    end
   },
   mapping = cmp.mapping.preset.insert {
     ["<Tab>"] = function(fallback)
@@ -25,14 +25,31 @@ cmp.setup {
       end
     end,
     ["<CR>"] = cmp.mapping.confirm { select = true },
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
     ["<C-e>"] = cmp.mapping.abort(),
     ["<Esc>"] = cmp.mapping.close(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-u>"] = cmp.mapping.scroll_docs(4),
+
+    ['<C-f>'] = cmp.mapping(function(fallback)
+      if luasnip.jumpable(1) then
+        luasnip.jump(1)
+      else
+        fallback()
+      end
+    end, {'i', 's'}),
+    ['<C-b>'] = cmp.mapping(function(fallback)
+      if luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, {'i', 's'}),
   },
   sources = {
     { name = "nvim_lsp" }, -- For nvim-lsp
-    { name = "ultisnips" }, -- For ultisnips user.
+    { name = "luasnip", option = { use_show_condition = false } },
     { name = "path" }, -- for path completion
     { name = "buffer", keyword_length = 2 }, -- for buffer word completion
     { name = "emoji", insert = true }, -- emoji completion
@@ -42,7 +59,7 @@ cmp.setup {
       },
     },
   },
-  completion = { keyword_length = 1, completeopt = "menu,noselect", },
+  completion = { keyword_length = 1, completeopt = "menu, menuone, noselect", },
   view = {
     entries = "custom",
   },
@@ -51,7 +68,7 @@ cmp.setup {
       mode = "symbol_text",
       menu = {
         nvim_lsp = "[LSP]",
-        ultisnips = "[US]",
+        luasnip = "[Snip]",
         nvim_lua = "[Lua]",
         path = "[Path]",
         buffer = "[Buffer]",
@@ -62,16 +79,6 @@ cmp.setup {
     },
   },
 }
-
-cmp.setup.filetype("tex", {
-  sources = {
-    { name = "omni" },
-    { name = "latex_symbols",},
-    { name = "ultisnips" }, -- For ultisnips user.
-    { name = "buffer", keyword_length = 2 }, -- for buffer word completion
-    { name = "path" }, -- for path completion
-  },
-})
 
 --  see https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-add-visual-studio-code-dark-theme-colors-to-the-menu
 vim.cmd([[
