@@ -11,7 +11,7 @@ vim.g['vimtex_mappings_enabled'] = 1
 vim.g['vimtex_indent_enabled'] = 1
 
 -- Syntax highlighting
-vim.g['vimtex_syntax_enabled'] = 1
+vim.g['vimtex_syntax_enabled'] = 0
 
 -- Error suppression:
 -- https://github.com/lervag/vimtex/blob/master/doc/vimtex.txt
