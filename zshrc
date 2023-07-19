@@ -16,3 +16,6 @@ source ~/.zsh/alias.zsh
 
 # environment variables
 source ~/.zsh/env_vars.zsh
+
+# keybinds
+source ~/.zsh/keybinds.zsh
