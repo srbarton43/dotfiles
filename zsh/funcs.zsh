@@ -33,12 +33,20 @@ killp() {
   fi
 }
 
-# find . -type d -not -path '*/\.git/*' -and -not -path './.git' -and -not -path '*Music*' -and -not -path '*packer*' -and -not -path '*release*' -and -not -path '*target*' -and -not -path '*python3.11*' -and -not -path '*node_modules*' -and -not -path '*Photos Library.photoslibrary*' -and -not -path '*cache*' -and -not -path '*build*' -and -not -path '*Application Support*' -and -not -path '*Data*' -and -not -path "*Packages*" -and -not -path '*.cargo/*' -and -not -path '*.vscode/*' -and -not -path '*Applications*' -and -not -path '*Library*' -and -not -path '*tmp*'\
-  
-# find . -type d \( -name \.git -o -name Music -o -name packer -o -name release -o -name target -o -name python3.11 -o -name node_modules -o -name "Photos Library.photoslibrary" -o -name cache -o -name "Application Support" -o -name Data -o -name Packages -o -name '.cargo' -o -name '.vscode' -o -name Applications -o -name Library -o -name tmp \) -prune -print
+# array of bad directorys DONT SEARCH
+local DIRS=('.git' "Music" "packer" "release" "target" "python3.11" "node_modules"
+      "Photos Library.photoslibrary" "cache" "build" "Application Support"
+      "Data" "Packages" ".cargo" ".vscode" "Applications" "Library" "tmp" 
+      ".rustup" '.docker')
+#construct 'find' flags string
+local str="find . -type d"
+for ((i=1; i<${#dirs[@]}; i++)); do
+  str="$str -not \( -path '"*${DIRS[i]}*"' -prune \) "
+done
+str="$str -not \( -path '.' \)"
 
 fzf-cd-widget() {
-  selection=$(find . -type d -not \( -path '*.git*' -prune \) -not \( -path '*Music*' -prune \) -not \( -path '*packer*' -prune \) -not \( -path '*release*' -prune \) -not \( -path '*target*' -prune \) -not \( -path '*python3.11*' -prune \) -not \( -path '*node_modules*' -prune \) -not \( -path '*Photos Library.photoslibrary*' -prune \) -not \( -path '*cache*' -prune \) -not \( -path '*build*' -prune \) -not \( -path '*Application Support*' -prune \) -not \( -path '*Data*' -prune \) -not \( -path '*Packages*' -prune \) -not \( -path '*.cargo*' -prune \) -not \( -path '*.vscode*' -prune \) -not \( -path '*Applications*' -prune \) -not \( -path '*Library*' -prune \) -not \( -path '*tmp*' -prune \) -not \( -path '.' \) \
+  selection=$(eval "$str" \
       | fzf --multi --height=80% --border=sharp \
       --preview='tree -C {}' --preview-window='45%,border-sharp' \
       --prompt='Dirs > ' \
@@ -60,3 +68,5 @@ fzf-cd-widget() {
   zle reset-prompt
   return 0
 }
+unset str
+unset DIRS
