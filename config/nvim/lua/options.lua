@@ -40,6 +40,8 @@ api.nvim_create_autocmd(
     { command = [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif]] }
   )
 
+-- for better escape
+vim.g['better_escape_shortcut'] = {'jk', 'kj'}
 vim.opt.runtimepath:remove("/usr/share/vim/vimfiles")  -- separate vim plugins from neovim in case vim still in use
 vim.o.signcolumn = "yes"
 vim.g.mapleader = ','
