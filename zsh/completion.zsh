@@ -1,6 +1,7 @@
 #### Autocomplete Case-insensitive #####
+fpath+=/Users/sbarton/.zsh/completion/
 zmodload -i zsh/complist
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -i
 unsetopt MENU_COMPLETE        # Don't automatically highlight first element of completion menu
 setopt AUTO_MENU            # Automatically list choices on ambiguous completion.
 setopt COMPLETE_IN_WORD     # Complete from both ends of a word.
@@ -16,6 +17,8 @@ zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}
 # https://chrisyeh96.github.io/2020/03/28/terminal-colors.html
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} "ma=48;5;235;38;5;255"
 zstyle ':completion:' special-dirs true
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
 # kill colors
 zstyle ':completion:*:*:kill:*processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 # Required for completion to be in good groups (named after the tags)
