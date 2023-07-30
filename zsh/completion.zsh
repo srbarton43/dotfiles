@@ -1,5 +1,5 @@
 #### Autocomplete Case-insensitive #####
-fpath+=/Users/sbarton/.zsh/completion/
+fpath=(/Users/sbarton/.zsh/completion/ /opt/homebrew/share/zsh/site-functions/ $fpath)
 zmodload -i zsh/complist
 autoload -Uz compinit && compinit -i
 unsetopt MENU_COMPLETE        # Don't automatically highlight first element of completion menu
