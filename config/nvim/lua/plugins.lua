@@ -64,7 +64,7 @@ return packer.startup(function(use)
   use({
     "L3MON4D3/LuaSnip",
     -- follow latest release.
-    tag = "v<CurrentMajor>.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
     -- install jsregexp (optional!:).
     run = "make install_jsregexp"
   })
@@ -76,7 +76,6 @@ return packer.startup(function(use)
     requires = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
     config = function()
       require'luasnip-latex-snippets'.setup()
-      -- or setup({ use_treesitter = true })
     end,
     -- treesitter is required for markdown
     ft = { "tex", "markdown" },
@@ -161,28 +160,6 @@ return packer.startup(function(use)
   end
   }
 
-  use {
-    "nvim-neorg/neorg",
-    ft = "norg",
-    after = "nvim-treesitter", -- You may want to specify Telescope here as well
-    config = function()
-        require('neorg').setup {
-            load = {
-                ["core.defaults"] = {}, -- Loads default behaviour
-                ["core.concealer"] = {}, -- Adds pretty icons to your documents
-                ["core.dirman"] = { -- Manages Neorg workspaces
-                    config = {
-                        workspaces = {
-                            notes = "~/notes",
-                        },
-                    },
-                },
-            },
-        }
-    end,
-    run = "Neorg sync-parsers",
-    requires = "nvim-lua/plenary.nvim",
-  }
   -- LaTeX
   use { "lervag/vimtex" } -- essential for LaTeX; Vimscript
   use { 'ckunte/latex-snippets-vim' }
@@ -224,7 +201,7 @@ return packer.startup(function(use)
       -- Now the picker_config_key will be applied every time you call this
       -- builtin picker
       find_files = {
-        file_ignore_patterns = { ".git/.*", },
+        file_ignore_patterns = { ".git/.*", ".*.pdf", ".*.png", ".*.jpeg", },
         hidden = true,
         theme = "dropdown",
         previewer = false,
@@ -235,7 +212,7 @@ return packer.startup(function(use)
         previewer = false,
       },
       live_grep = {
-        file_ignore_patterns = { ".git/.*", },
+        file_ignore_patterns = { ".git/.*", ".*.pdf", ".*.png", ".*.jpeg", },
         theme = "dropdown",
       }
     },
@@ -256,29 +233,6 @@ return packer.startup(function(use)
   }
   require('telescope').load_extension('fzf')
   require('config.telescope-conf')
-  require("luasnip.loaders.from_vscode").lazy_load()
---  require('neorg').setup {
---    -- Tell Neorg what modules to load
---    load = {
---      ["core.defaults"] = {}, -- Load all the default modules
---      ["core.norg.concealer"] = {}, -- Allows for use of icons
---      ["core.norg.dirman"] = { -- Manage your directories with Neorg
---        config = {
---          workspaces = {
---            my_workspace = "~/neorg"
---          }
---        }
---      }
---    },
---  }
---
---  local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
---
---  parser_configs.norg = {
---    install_info = {
---      url = "https://github.com/nvim-neorg/tree-sitter-norg",
---      files = { "src/parser.c", "src/scanner.cc" },
---      branch = "main"
---    },
---  }
+  require('config.vimtex')
+  require("config.luasnip");
 end)

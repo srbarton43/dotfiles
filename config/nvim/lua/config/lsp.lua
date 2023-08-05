@@ -26,7 +26,19 @@ lspconfig.lua_ls.setup({
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = { "vim" },
+        -- also luasnip globals
+        globals = { "vim",
+        "ls", -- require("luasnip")
+        "s", -- ls.snippet
+        "sn", -- ls.snippet_node
+        "t", -- ls.text_node
+        "i", -- ls.insert_node
+        "f", -- ls.function_node
+        "d", -- ls.dynamic_node
+        "fmt", -- require("luasnip.extras.fmt").fmt
+        "fmta", -- require("luasnip.extras.fmt").fmta
+        "rep", -- require("luasnip.extras").rep
+      },
       }
     }
   }
@@ -58,7 +70,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<C-x>', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
     vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
     vim.keymap.set('n', '<space>wl', function()

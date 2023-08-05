@@ -53,11 +53,6 @@ cmp.setup {
     { name = "path" }, -- for path completion
     { name = "buffer", keyword_length = 2 }, -- for buffer word completion
     { name = "emoji", insert = true }, -- emoji completion
-    { name = "latex_symbols",
-      option = {
-        strategy = 0,
-      },
-    },
   },
   completion = { keyword_length = 1, completeopt = "menu, menuone, noselect", },
   view = {
@@ -74,7 +69,6 @@ cmp.setup {
         buffer = "[Buffer]",
         emoji = "[Emoji]",
         omni = "[Omni]",
-        latex_symbols = "[LaTeX]"
       },
     },
   },
