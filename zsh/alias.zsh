@@ -12,7 +12,8 @@ alias pip="pip3"
 alias gittree="tree -a --gitignore -I .git"
 alias grep="grep --color"
 alias file="color_file"
-alias skim='/Applications/Skim.app/Contents/MacOS/Skim'
+alias skim='/Applications/Skim.app/Contents/MacOS/Skim' # for neovim latex only
+alias matlab='/Applications/MATLAB_R2023a.app/bin/matlab -nodesktop'
 
 
 ###### GIT Aliases ############
@@ -25,6 +26,7 @@ alias gl="git log --graph --one-line"
 alias gd="git diff"
 alias gp="git push"
 alias gmt="git mergetool"
+alias glog="git log; clear"
 
 #TEST#
 alias ez="exec zsh"

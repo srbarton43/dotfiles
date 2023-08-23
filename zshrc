@@ -9,7 +9,7 @@ source ~/.zsh/completion.zsh
 source ~/.zsh/prompt.zsh
 
 # zsh functions
-source ~/.zsh/funcs.zsh
+source ~/.zsh/shell_scripts.zsh
 
 # aliases
 source ~/.zsh/alias.zsh
