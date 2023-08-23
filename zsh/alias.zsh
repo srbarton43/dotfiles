@@ -34,4 +34,4 @@ alias ez="exec zsh"
 ###### LATEX #######
 # Cleans latex directory
 # keeps only pdf and .tex files
-alias clean_latex="find -E . -maxdepth 2 -type f -regex '.*\.(log|aux|synctex\.gz|fdb_latexmk)$' -delete"
+alias clean-latex="find -E . -maxdepth 2 -type f -regex '.*\.(log|aux|synctex\.gz|fdb_latexmk|fls)$' -delete"
