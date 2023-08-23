@@ -1,3 +1,5 @@
+-- TODO Make more readable
+--  divide into multiple sections (files), ie math_mode
 
 -- ----------------------------------------------------------------------------
 -- Summary: When `LS_SELECT_RAW` is populated with a visual selection, the function
@@ -37,11 +39,30 @@ end
 tex_utils.in_tikz = function()  -- TikZ picture environment detection
     return tex_utils.in_env('tikzpicture')
 end
+tex_utils.in_enumerate = function() -- enumerate environment detection
+  return tex_utils.in_env('enumerate')
+end
 
 return {
 
 
-
+--------------------------------------------------------------
+------------- Figure -------------------------
+s({trig="fig", name="fig~", dscr="Figure Enviroment"},
+  fmta(
+  [[
+    \begin{figure}
+      \center
+      \includegraphics[width=<>\textwidth]{figures/<>}
+      \caption{<>}
+    \end{figure}
+  ]],
+  {
+    i(1, "percentof"),
+    i(2, "filename"),
+    i(3, "caption")
+  })
+  ),
 
 -- Examples of Greek letter snippets, autotriggered for efficiency
 s({trig=";a", snippetType="autosnippet"},
@@ -91,7 +112,8 @@ s({trig = "([^%a])ff", regTrig=true, wordTrig=false, name="frac", dscr="Fraction
       i(1),
       i(2)
     }
-  )
+  ),
+  {condition=tex_utils.in_mathzone}
 ),
 
 -- Equation
@@ -165,7 +187,6 @@ s({trig = '([%a%)%]%}])00', regTrig = true, wordTrig = false, snippetType="autos
 ),
 
 
-
 -- sub super scripts
 s({ trig='(%a)(%d)', regTrig=true,  name='auto subscript', snippetType="autosnippet"},
     fmta([[<>_<>]],
@@ -195,13 +216,13 @@ s({trig = 'do', name='First Derivative', snippetType="autosnippet"},
 -- item list stuff
 s({trig = '--', snippetType="autosnippet"},
   t("\\item "),
-  {condition=tex_utils.in_itemize}
+  {condition=tex_utils.in_enumerate or tex_utils.in_itemize}
 ),
 s({trig = '-=', snippetType="autosnippet"},
   fmta("\\item [<>]",
     i(1)
   ),
-  {condition=tex_utils.in_itemize}
+  {condition=tex_utils.in_enumerate or tex_utils.in_itemize}
 ),
 -- --------------------------------------------------------------------------------
 -- left right delimeters
