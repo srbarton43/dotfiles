@@ -79,6 +79,7 @@ fzf-cd-widget() {
     )
   echo $selection
   [[ ! -z $selection ]] && cd "$selection" && ls -G
+  vcs_info
   zle reset-prompt
   unset str
   unset selection
