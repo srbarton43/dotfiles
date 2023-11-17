@@ -16,3 +16,9 @@ name = Samuel Barton
 [mergetool]
   prompt = false
   keepBackup = false
+
+[core]
+  pager = delta
+	excludesFile = /Users/sbarton/.config/.gitignore
+[safe]
+	directory = /Users/sbarton/Desktop/ /Skewl/Darty/21F/COSC010/cs10

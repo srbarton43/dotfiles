@@ -2,3 +2,8 @@ config/nvim/plugin
 todo.txt
 *.DS_Store*
 zsh/completion/*
+# everything in config....
+config/*
+# except....
+!config/tmux
+!config/nvim
