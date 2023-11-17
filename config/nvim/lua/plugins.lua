@@ -68,9 +68,8 @@ return packer.startup(function(use)
     -- install jsregexp (optional!:).
     run = "make install_jsregexp"
   })
-  use { "rafamadriz/friendly-snippets" }
   use {
-    "iurimateus/luasnip-latex-snippets.nvim",
+    "srbarton43/luasnip-latex-snippets.nvim",
     -- replace "lervag/vimtex" with "nvim-treesitter/nvim-treesitter" if you're
     -- using treesitter.
     requires = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
@@ -201,7 +200,7 @@ return packer.startup(function(use)
       -- Now the picker_config_key will be applied every time you call this
       -- builtin picker
       find_files = {
-        file_ignore_patterns = { ".git/.*", ".*.pdf", ".*.png", ".*.jpeg", },
+        file_ignore_patterns = { ".git/.*", ".*.pdf", ".*.png", ".*.PNG", ".*.jpeg", ".*.xlsx" ,},
         hidden = true,
         theme = "dropdown",
         previewer = false,
@@ -212,7 +211,7 @@ return packer.startup(function(use)
         previewer = false,
       },
       live_grep = {
-        file_ignore_patterns = { ".git/.*", ".*.pdf", ".*.png", ".*.jpeg", },
+        file_ignore_patterns = { ".git/.*", ".*.pdf", ".*.png", ".*.PNG", ".*.jpeg", ".*.xlsx", },
         theme = "dropdown",
       }
     },
