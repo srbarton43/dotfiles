@@ -44,9 +44,16 @@ killp() {
 ### script to autodelete scanned pdfs in downloads (and screenshots)
 delete-scans() {
 
+echo "Deleting Adobe Scan PDFs"
+
+let x=0
 for f in ~/Downloads/*.pdf; do
-  pdfinfo "$f" | grep Adobe\ Scan &> /dev/null && trash "$f"
+  pdfinfo "$f" | grep Adobe\ Scan &> /dev/null && trash "$f" && ((x+=1))
 done
+
+echo "Deleted $x item(s)"
+
+unset x
 
 }
 
@@ -78,7 +85,12 @@ fzf-cd-widget() {
       --border-label="Fuzzy CD Widget"
     )
   echo $selection
-  [[ ! -z $selection ]] && cd "$selection" && ls -G
+  if [[ ! -z $selection ]]; then 
+    cd "$selection" 
+    echo "---------------------------------------------"
+    ls -lG
+    echo "---------------------------------------------"
+  fi
   vcs_info
   zle reset-prompt
   unset str
@@ -95,7 +107,32 @@ fzf-paste-widget() {
   str="$str -not \( -path '/Users/sbarton' \)"
   selection=$(eval "$str" \
     | fzf --height=80% --border=sharp \
-      --preview='bat --color=always {} || tree -C {}' --preview-window='45%,border-sharp' \
+      --preview='[[ -d {} ]] && tree -C {} || bat --color=always {}' --preview-window='45%,border-sharp' \
+      --prompt='Path > ' \
+      --bind='ctrl-o:toggle-preview' \
+      --bind='ctrl-a:select-all' \
+      --bind='ctrl-x:deselect-all' \
+      --pointer='󰜴' --marker='󰄳 ' --multi --color='dark,fg+:red,hl:cyan,hl+:yellow,label:yellow,info:grey' \
+      --border-label="Fuzzy Paste Widget"
+    )
+  [ ! -z $selection ] && LBUFFER="${LBUFFER}'$selection'"
+  zle reset-prompt
+  unset str
+  unset selection
+  return 0
+}
+
+#### paste from cwd recursive #####
+fzf-paste-widget-cwd() {
+  str="find ."
+  for ((i=1; i<${#EX_DIRS[@]}+1; i++)); do
+    str="$str -not \( -path '"*${EX_DIRS[i]}*"' -prune \) "
+  done
+  str="$str -not \( -path '/Users/sbarton' \)"
+  str="$str -not \( -path '.' \)"
+  selection=$(eval "$str" \
+    | fzf --height=80% --border=sharp \
+      --preview='[[ -d {} ]] && tree -C {} || bat --color=always {} ' --preview-window='45%,border-sharp' \
       --prompt='Path > ' \
       --bind='ctrl-o:toggle-preview' \
       --bind='ctrl-a:select-all' \
@@ -114,8 +151,10 @@ fzf-paste-widget() {
 fzf-history-widget() {
   local selected num
   setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
-  selected=( $(fc -rl 1 | awk '{ cmd=$0; sub(/^[ \t]*[0-9]+\**[ \t]+/, "", cmd); if (!seen[cmd]++) print $0 }' |
-    $(fzf --height=80% --border=sharp --scheme=history --bind=ctrl-r:toggle-sort,ctrl-z:ignore --query=${(qqq)LBUFFER} +m)) )
+  #selected=( $(fc -rl 1 | awk '{ cmd=$0; sub(/^[ \t]*[0-9]+\**[ \t]+/, "", cmd); if (!seen[cmd]++) print $0 }' |
+    # $(fzf --height=80% --border=sharp --scheme=history --bind=ctrl-r:toggle-sort,ctrl-z:ignore --query=${(qqq)LBUFFER} +m)) )
+    selected=( $(fc -rl 1 | awk '{ cmd=$0; sub(/^[ \t]*[0-9]+\**[ \t]+/, "", cmd); if (!seen[cmd]++) print $0 }' |
+    FZF_DEFAULT_OPTS="--height=80% --border=sharp --scheme=history --bind=ctrl-r:toggle-sort --query=${(qqq)LBUFFER} +m" fzf) )
   local ret=$?
   if [ -n "$selected" ]; then
     num=$selected[1]
