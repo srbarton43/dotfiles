@@ -22,6 +22,8 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+vim.cmd("syntax on")
+
 -- INDENT -- (see also vimtex.lua)
 vim.g['tex_flavor'] = 'latex'
 vim.g['tex_indent_items'] = 0              -- turn off enumerate indent
@@ -41,7 +43,14 @@ api.nvim_create_autocmd(
   )
 
 -- for better escape
-vim.g['better_escape_shortcut'] = {'jk', 'kj'}
+vim.g['better_escape_shortcut'] = {'jk', 'kj', 'JK', 'KJ'}
 vim.opt.runtimepath:remove("/usr/share/vim/vimfiles")  -- separate vim plugins from neovim in case vim still in use
 vim.o.signcolumn = "yes"
 vim.g.mapleader = ','
+
+
+-- luasnip selection mode
+require("luasnip").config.set_config({ -- Setting LuaSnip config
+  -- Use <Tab> (or some other key if you prefer) to trigger visual selection
+  store_selection_keys = "<Tab>",
+})
