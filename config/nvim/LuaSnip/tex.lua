@@ -163,6 +163,16 @@ s({trig = "tii", dscr = "Expands 'tii' into LaTeX's textit{} command."},
   )
 ),
 
+-- Example: bold font implementing visual selection
+s({trig = "tbf", dscr = "Expands 'tbf' into LaTeX's textit{} command."},
+  fmta("\\textbf{<>}",
+    {
+      d(1, get_visual),
+    }
+  )
+),
+
+
 -- expoonential auto
 s({trig = "([^%a])ee", regTrig=true, wordTrig=false, snippetType="autosnippet"},
   fmta("<>e ^ {<>}",
