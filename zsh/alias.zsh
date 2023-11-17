@@ -14,6 +14,7 @@ alias grep="grep --color"
 alias file="color_file"
 alias skim='/Applications/Skim.app/Contents/MacOS/Skim' # for neovim latex only
 alias matlab='/Applications/MATLAB_R2023a.app/bin/matlab -nodesktop'
+alias oskim='open -a Skim'
 
 
 ###### GIT Aliases ############
