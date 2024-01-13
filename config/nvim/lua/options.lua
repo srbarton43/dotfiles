@@ -13,9 +13,11 @@ local options = {
   shiftwidth = 2,                          -- the number of spaces inserted for each indentation
   tabstop = 2,                             -- insert 2 spaces for a tab
   number = true,                           -- set numbered lines
-  relativenumber = false,                  -- set relative numbered lines
+  relativenumber = true,                   -- set relative numbered lines
   showmode = false,                        -- don't show '--insert' at bottom
   showcmd = true,
+  cursorline = true,                       -- highlight current line number
+  cursorlineopt = "number",                -- ditto
 }
 
 for k, v in pairs(options) do

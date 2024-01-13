@@ -77,7 +77,7 @@ return packer.startup(function(use)
       require'luasnip-latex-snippets'.setup()
     end,
     -- treesitter is required for markdown
-    ft = { "tex", "markdown" },
+    ft = { "tex" },
   }
 
   -- for status line at bottom
@@ -90,6 +90,7 @@ return packer.startup(function(use)
   -- for better syntax highlighting and lsp
   use {
     "nvim-treesitter/nvim-treesitter",
+    tag = "v0.9.1",
     event = "BufEnter",
     run = ":TSUpdate",
     config = [[require('config.treesitter')]],
@@ -113,6 +114,7 @@ return packer.startup(function(use)
   }
 
   -- autocomplete brackets and such
+  -- idk if I like this plugin too much
   use {
     "windwp/nvim-autopairs",
     config = function()
