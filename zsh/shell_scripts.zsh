@@ -90,8 +90,8 @@ fzf-cd-widget() {
       --pointer='󰜴' --marker='󰄳 ' --multi --color='dark,fg+:red,hl:cyan,hl+:yellow,label:yellow,info:grey' \
       --border-label="Fuzzy CD Widget"
     )
-  echo $selection
   if [[ ! -z $selection ]]; then 
+    echo $selection
     cd "$selection" 
     echo "---------------------------------------------"
     ls -lG
@@ -144,7 +144,7 @@ fzf-paste-widget-cwd() {
       --bind='ctrl-a:select-all' \
       --bind='ctrl-x:deselect-all' \
       --pointer='󰜴' --marker='󰄳 ' --multi --color='dark,fg+:red,hl:cyan,hl+:yellow,label:yellow,info:grey' \
-      --border-label="Fuzzy Paste Widget"
+      --border-label="Fuzzy Paste Widget CWD"
     )
   [ ! -z $selection ] && LBUFFER="${LBUFFER}'$selection'"
   zle reset-prompt
