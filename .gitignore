@@ -2,6 +2,7 @@ config/nvim/plugin
 todo.txt
 *.DS_Store*
 zsh/completion/*
+*.old
 # everything in config....
 config/*
 # except....
