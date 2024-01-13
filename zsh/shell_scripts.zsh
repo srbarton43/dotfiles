@@ -1,5 +1,11 @@
 ### FUNCTIONS #####
 
+# open github root dir in browser
+# https://superuser.com/a/1531797 for shell script
+go() {
+  git remote -v | head -n 1 | awk -F "@" '{print $2}' | awk -F " " '{print $1}' | sed 's/:/\//g' | sed 's/.git//g' | awk '{print "https://"$0}' | xargs open
+}
+
 # pipe tree cmd into less with colors
 treel(){ tree -C $1 | less -r; }
 
