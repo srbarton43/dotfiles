@@ -6,7 +6,7 @@ export LS_COLORS="di=36:ln=32:so=32:pi=33:ex=1;35:bd=30;1;43:cd=30;43:su=30;41:s
 source ~/.zsh/completion.zsh
 
 # prompt
-source ~/.zsh/prompt.zsh
+#source ~/.zsh/prompt.zsh
 
 # zsh functions
 source ~/.zsh/shell_scripts.zsh
@@ -19,3 +19,5 @@ source ~/.zsh/env_vars.zsh
 
 # keybinds
 source ~/.zsh/keybinds.zsh
+
+eval "$(starship init zsh)"

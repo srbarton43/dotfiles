@@ -1,4 +1,6 @@
 #### Autocomplete Case-insensitive #####
+source ~/Packages/nix-zsh-completions/nix-zsh-completions.plugin.zsh
+fpath=(~/Packages/nix-zsh-completions $fpath)
 fpath=(/Users/sbarton/.zsh/completion/ /opt/homebrew/share/zsh/site-functions/ $fpath)
 zmodload -i zsh/complist
 autoload -Uz compinit && compinit -i

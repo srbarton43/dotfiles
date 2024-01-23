@@ -1,4 +1,8 @@
 ### FUNCTIONS #####
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+
 
 # open github root dir in browser
 # https://superuser.com/a/1531797 for shell script
