@@ -1,3 +1,14 @@
+return {
+  'lervag/vimtex',
+  event = "BufEnter *.tex",
+  dependencies = {
+    'ckunte/latex-snippets-vim',
+    'srbarton43/luasnip-latex-snippets.nvim',
+    config = function()
+      require'luasnip-latex-snippets'.setup()
+    end,
+  },
+  config = function()
 -- PDF Viewer:
 -- http://manpages.ubuntu.com/manpages/trusty/man5/zathurarc.5.html
 vim.g['vimtex_mappings_prefix'] = ','
@@ -38,4 +49,6 @@ vim.g['vimtex_context_pdf_viewer'] = 'skim'
 -- vim.g['vimtex_complete_enabled'] = 1
 -- vim.g['vimtex_compiler_progname'] = 'nvr'
 vim.g['vimtex_complete_close_braces'] = 1
-vim.cmd('source /Users/sbarton/.config/nvim/lua/config/vimtex.vim')
+vim.cmd('source /Users/sbarton/.config/nvim/lua/srbarton/plugins/vimtex.vim')
+  end
+}

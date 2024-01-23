@@ -4,7 +4,6 @@ return {
   version = "v2.*",
   build = 'make install_jsregexp',
   config = function()
-    require("plugins.config.luasnip")
+    require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/LuaSnip/" })
   end
 }
-  
