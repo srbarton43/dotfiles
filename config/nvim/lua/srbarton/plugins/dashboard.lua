@@ -41,12 +41,12 @@ return {
         action = ":Telescope live_grep",
         key = "<Leader>fg",
       },
-      {
-        icon = "  ",
-        desc = "Open Nvim config                        ",
-        action = "tabnew $MYVIMRC | tcd %:p:h",
-        key = "<Leader>ev",
-      },
+      --{
+      --  icon = "  ",
+      --  desc = "Open Nvim config                        ",
+      --  action = "tabnew $MYVIMRC | tcd %:p:h",
+      --  key = "<Leader>ev",
+      --},
       {
         icon = "  ",
         desc = "New file                                ",
@@ -68,13 +68,13 @@ return {
       config = conf
     })
 
-    --api.nvim_create_autocmd("FileType", {
-    --  pattern = "dashboard",
-    --  group = api.nvim_create_augroup("dashboard_enter", { clear = true }),
-    --  callback = function ()
-    --    keymap.set("n", "q", ":qa<CR>", { buffer = true, silent = true })
-    --    keymap.set("n", "e", ":enew<CR>", { buffer = true, silent = true })
-    --  end
-    --)}
+    api.nvim_create_autocmd("FileType", {
+      pattern = "dashboard",
+      group = api.nvim_create_augroup("dashboard_enter", { clear = true }),
+      callback = function ()
+        keymap.set("n", "q", ":qa<CR>", { buffer = true, silent = true })
+        keymap.set("n", "e", ":enew<CR>", { buffer = true, silent = true })
+      end
+    })
   end
 }
