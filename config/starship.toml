@@ -1,0 +1,33 @@
+format = '${custom.dirty}$git_branch$directory[\$](bold #ffffff) '#$all'
+right_format = "$status" # return value on right side
+add_newline = false
+
+[status] # get return value on right side
+style = 'bold fg:red'
+symbol = '󰌑'
+success_symbol = '󰌑'
+format = '[$status $symbol]($style)'
+disabled = false
+
+[directory]
+format = '[\[$path\]]($style)'
+style = 'cyan'
+
+[git_branch]
+format = '[\[$branch\]]($style)'
+style = 'green'
+
+[git_status]
+format = '[($modified$untracked$renamed$deleted)]($style)'
+style = 'red'
+modified = '*'
+renamed = '*'
+untracked = '*'
+deleted = '*'
+
+[custom.dirty]
+require_repo = true
+when = 'git status --porcelain 2> /dev/null | grep -q ".*"'
+symbol = '*'
+style = 'red'
+format = '[$symbol]($style)'
