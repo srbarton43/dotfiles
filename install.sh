@@ -26,7 +26,9 @@ local with_prefix=("${config_files[@]/#/.config/}")
 local files_backed_up=0
 
 # should be the home directory, ~
-local dest_prefix=~/tmp
+local dest_prefix=~
+
+echo "$dest_prefix"
 
 # loop through non .config dotfiles
 for file in ${files[@]}; do
