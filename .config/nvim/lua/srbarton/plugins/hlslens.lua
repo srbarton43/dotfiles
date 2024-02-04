@@ -1,7 +1,7 @@
 return {
   "kevinhwang91/nvim-hlslens",
   branch = "main",
-  event = "BufEnter",
+  event = {"BufReadPost", "BufNewFile"},
   keys = { { "n", "*" }, { "n", "#" }, { "n", "n" }, { "n", "N" } },
   config = function()
     local api = vim.api
