@@ -18,6 +18,13 @@ if status is-interactive
   bind \ce 'fzf_cd_widget'
   bind \cp 'fzf_paste_widget'
   bind \co 'fzf_paste_cwd_widget'
+
+  # abbreviations
+
+  # git
+  abbr -a -- gg 'git status'
+  abbr -a -- gcm 'git commit -v'
+  abbr -a -- gall 'git add .'
   
   # initialize the prompt
   starship init fish | source
