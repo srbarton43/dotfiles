@@ -1,0 +1,32 @@
+.git/
+Music
+release
+target
+python3.11
+node_modules
+Photos
+Pictures
+Library.photoslibrary
+.cache
+build
+Application
+Support
+Data
+Packages
+.cargo
+.vscode
+.ghidra
+.gitkraken
+.password-store
+Applications
+Library
+tmp
+Applications (Parallels)
+.rustup
+.docker
+Old Firefox Data
+MATLAB
+Parallels
+.Trash
+*Cache*
+.zsh_sessions
