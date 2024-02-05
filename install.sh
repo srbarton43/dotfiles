@@ -11,7 +11,7 @@ full_path="$(cd -- "$full_path" && pwd)"    # absolutized and normalized
 echo "$full_path"
 
 # for renaming old files
-local date=$(date -jI)
+local date=$(date -I)
 
 # dotfiles or directories that are tracked
 local files=(.gitconfig .viminfo .vimrc .vim .zshrc .zsh .fdignore)
