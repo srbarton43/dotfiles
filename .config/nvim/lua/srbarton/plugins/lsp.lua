@@ -14,42 +14,42 @@ return {
       py_path = vim.g.python3_host_prog
     end
     local lspconfig = require('lspconfig')
-    lspconfig.pylsp.setup {
-      settings = {
-        pylsp = {
-          plugins = {
-            black = { enables = true },
-            pylsp_mypy = {
-              enabled = true,
-              overrides = { "--python-executable", py_path, true },
-              report_progess = true,
-              live_mode = false
-            },
-            jedi_completion = {
-              fuzzy = true,
-              include_params = true,
-            },
-          }
-        }
-      }
-    }
-    lspconfig.rust_analyzer.setup({
-      capabilities = capabilities,
-      filetypes = { "rust" },
-      settings = {
-        ['rust-analyzer'] = {
-          cargo = {
-            allFeatures = true,
-          },
-          check = {
-            ignore = {
-              "unused_imports",
-              "unused_variables"
-            }
-          },
-        },
-      },
-    })
+    --lspconfig.pylsp.setup {
+    --  settings = {
+    --    pylsp = {
+    --      plugins = {
+    --        black = { enables = true },
+    --        pylsp_mypy = {
+    --          enabled = true,
+    --          overrides = { "--python-executable", py_path, true },
+    --          report_progess = true,
+    --          live_mode = false
+    --        },
+    --        jedi_completion = {
+    --          fuzzy = true,
+    --          include_params = true,
+    --        },
+    --      }
+    --    }
+    --  }
+    --}
+    --lspconfig.rust_analyzer.setup({
+    --  capabilities = capabilities,
+    --  filetypes = { "rust" },
+    --  settings = {
+    --    ['rust-analyzer'] = {
+    --      cargo = {
+    --        allFeatures = true,
+    --      },
+    --      check = {
+    --        ignore = {
+    --          "unused_imports",
+    --          "unused_variables"
+    --        }
+    --      },
+    --    },
+    --  },
+    --})
 
     lspconfig.clangd.setup({
       filetypes = { "c", "cpp", "cc" },
@@ -85,13 +85,13 @@ return {
       }
     })
 
-    lspconfig.texlab.setup({
-      -- config
-    })
+    --lspconfig.texlab.setup({
+    --  -- config
+    --})
 
-    lspconfig.bashls.setup({
+    --lspconfig.bashls.setup({
 
-    })
+    --})
 
     -- Global mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions

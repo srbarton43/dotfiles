@@ -27,9 +27,9 @@ end
 vim.cmd("syntax on")
 
 -- INDENT -- (see also vimtex.lua)
-vim.g['tex_flavor'] = 'latex'
-vim.g['tex_indent_items'] = 0              -- turn off enumerate indent
-vim.g['tex_indent_brace'] = 0              -- turn off brace indent
+--vim.g['tex_flavor'] = 'latex'
+--vim.g['tex_indent_items'] = 0              -- turn off enumerate indent
+--vim.g['tex_indent_brace'] = 0              -- turn off brace indent
 -- vim.g['tex_indent_and'] = 0             -- whether to align with &
 -- vim.g['latex_indent_enabled'] = 0
 -- vim.g['vimtex_indent_enabled'] = 0

@@ -14,7 +14,7 @@ echo "$full_path"
 local date=$(date -I)
 
 # dotfiles or directories that are tracked
-local files=(.gitconfig .viminfo .vimrc .vim .zshrc .zsh .fdignore)
+local files=(.viminfo .vimrc .vim .gitconfig .gitignore)
 
 # config files or directories
 local config_files=(starship.toml fish nvim)

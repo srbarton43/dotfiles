@@ -1,6 +1,6 @@
 return {
   'hrsh7th/nvim-cmp',
-  event = "InsertEnter",
+  event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     "hrsh7th/cmp-nvim-lsp",

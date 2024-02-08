@@ -15,9 +15,9 @@ if status is-interactive
   set fish_cursor_visual block
 
   ## keybindings
-  bind \ce 'fzf_cd_widget'
-  bind \cp 'fzf_paste_widget'
-  bind \co 'fzf_paste_cwd_widget'
+  #bind \ce 'fzf_cd_widget'
+  #bind \cp 'fzf_paste_widget'
+  #bind \co 'fzf_paste_cwd_widget'
 
   ## abbreviations
   abbr -a -- lsa 'ls -A'
