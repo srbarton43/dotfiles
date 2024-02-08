@@ -16,6 +16,7 @@ if status is-interactive
 
   ## keybindings
   bind \ce 'fzf_cd_widget'
+  bind \cw 'fzf_cd_cwd_widget'
   bind \cp 'fzf_paste_widget'
   bind \co 'fzf_paste_cwd_widget'
 
