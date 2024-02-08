@@ -20,4 +20,4 @@
 [core]
 	excludesFile = /thayerfs/home/f005cz5/.gitignore
   pager = less -R
-  editor = nvim
+  editor = vim
