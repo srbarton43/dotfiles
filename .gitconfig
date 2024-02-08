@@ -1,9 +1,8 @@
 # This is Git's per-user configuration file.
 [user]
 # Please adapt and uncomment the following lines:
-name = Samuel Barton
+  name = Samuel Barton
 	email = srbarton43@gmail.com
-	editor = nvim
 [init]
 	defaultBranch = main
 
@@ -19,6 +18,7 @@ name = Samuel Barton
 
 [core]
   pager = delta
-	excludesFile = /Users/sbarton/.config/.gitignore
+	excludesFile = /Users/sbarton/.gitignore
+  editor = nvim
 [safe]
 	directory = /Users/sbarton/Desktop/ /Skewl/Darty/21F/COSC010/cs10

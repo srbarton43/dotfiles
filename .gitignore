@@ -1,12 +1,5 @@
-config/nvim/plugin
+.idea
+.DS_Store
+.vscode
+.cache
 todo.txt
-*.DS_Store*
-zsh/completion/*
-*.old
-# everything in config....
-config/*
-# except....
-!config/tmux
-!config/nvim
-!config/fish
-!config/starship.toml

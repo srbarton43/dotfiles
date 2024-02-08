@@ -1,6 +1,0 @@
-*
-# except....
-!config/tmux
-!config/nvim
-!config/fish
-!config/starship.toml
