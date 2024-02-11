@@ -42,7 +42,13 @@ if status is-interactive
   ## export variables
   set -xg LSCOLORS 'gxcxcxdxFxaDadabagacad'
   set -xg LS_COLORS "di=36:ln=32:so=32:pi=33:ex=1;35:bd=30;1;43:cd=30;43:su=30;41:sg=30;46:tw=30;42:ow=30;43" 
+
+  # enable fish completions for nix
+  source /nix/var/nix/profiles/default/share/fish/vendor_completions.d/nix.fish
   
   # initialize the prompt
   starship init fish | source
 end
+
+# opam configuration
+# source /Users/sbarton/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
