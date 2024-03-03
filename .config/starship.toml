@@ -27,7 +27,9 @@ deleted = '*'
 
 [custom.dirty]
 require_repo = true
-when = 'git status --porcelain 2> /dev/null | grep -q ".*"'
+when = '[[ ! -z $(git status --porcelain) ]]'
 symbol = '*'
 style = 'red'
 format = '[$symbol]($style)'
+ignore_timeout = true
+shell = ['sh']
