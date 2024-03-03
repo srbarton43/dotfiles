@@ -1,6 +1,6 @@
 return {
   'neovim/nvim-lspconfig',
-  event = "BufEnter",
+  event = {"BufNewFile", "BufReadPost"},
   config = function()
     -- Setup language servers.
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
