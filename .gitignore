@@ -3,3 +3,5 @@ todo.txt
 .vscode
 .idea
 compile_commands.json
+.nfs*
+.clang-format
