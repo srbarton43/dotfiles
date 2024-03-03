@@ -41,6 +41,8 @@ if status is-interactive
   ## export variables
   set -xg LSCOLORS 'gxcxcxdxFxaDadabagacad'
   set -xg LS_COLORS "di=36:ln=32:so=32:pi=33:ex=1;35:bd=30;1;43:cd=30;43:su=30;41:sg=30;46:tw=30;42:ow=30;43" 
+
+  set -xg YALNIX_FRAMEWORK /thayerfs/courses/24winter/cosc058/workspace/yalnix_framework
   
   # initialize the prompt
   starship init fish | source
