@@ -17,17 +17,11 @@ style = 'cyan'
 format = '[\[$branch\]]($style)'
 style = 'green'
 
-[git_status]
-format = '[($modified$untracked$renamed$deleted)]($style)'
-style = 'red'
-modified = '*'
-renamed = '*'
-untracked = '*'
-deleted = '*'
-
 [custom.dirty]
 require_repo = true
-when = 'git status --porcelain 2> /dev/null | grep -q ".*"'
+when = '[[ ! -z $(git status --porcelain) ]]'
 symbol = '*'
 style = 'red'
 format = '[$symbol]($style)'
+ignore_timeout = true
+shell = ['sh']
