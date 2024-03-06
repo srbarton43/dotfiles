@@ -47,6 +47,7 @@ if status is-interactive
   source /nix/var/nix/profiles/default/share/fish/vendor_completions.d/nix.fish
   
   # initialize the prompt
+  zoxide init fish | source
   starship init fish | source
 end
 

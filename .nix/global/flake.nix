@@ -40,6 +40,7 @@
         du-dust
         bottom
         htop
+        zoxide
       ];
     };
   };
