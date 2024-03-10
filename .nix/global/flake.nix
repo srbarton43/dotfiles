@@ -41,6 +41,7 @@
         bottom
         htop
         zoxide
+        lazygit
       ];
     };
   };
