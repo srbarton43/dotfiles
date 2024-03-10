@@ -2,4 +2,5 @@
 .DS_Store
 .vscode
 .cache
+compile_commands.json
 todo.txt

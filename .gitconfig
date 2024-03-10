@@ -18,7 +18,8 @@
 
 [core]
   pager = delta
-	excludesFile = /Users/sbarton/.gitignore
+	excludesFile = /Users/sbarton/dotfiles/.gitignore
   editor = nvim
+
 [safe]
 	directory = /Users/sbarton/Desktop/ /Skewl/Darty/21F/COSC010/cs10
