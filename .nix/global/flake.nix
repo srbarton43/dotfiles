@@ -42,6 +42,7 @@
         htop
         zoxide
         lazygit
+        eza
       ];
     };
   };
