@@ -17,7 +17,7 @@ local date=$(date -I)
 local files=(.gitconfig .viminfo .vimrc .vim .zshrc .zsh .fdignore .nix)
 
 # config files or directories
-local config_files=(starship.toml fish nvim)
+local config_files=(starship.toml fish nvim tmux)
 
 # add .config prefix to the path
 local with_prefix=("${config_files[@]/#/.config/}")
