@@ -43,6 +43,7 @@
         zoxide
         lazygit
         eza
+        git
       ];
     };
   };
