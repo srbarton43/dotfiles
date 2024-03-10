@@ -23,6 +23,9 @@ vim.keymap.set('n', 'N', 'Nzz', opts);
 -- save file with C-s
 vim.keymap.set('n', '<C-s>', ':w<CR>', opts)
 
+-- lazy git
+vim.keymap.set('n', '<leader>lg', ':LazyGit<CR>', opts);
+
 -----------------
 -- Visual mode --
 -----------------
