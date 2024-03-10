@@ -30,6 +30,7 @@ if status is-interactive
   abbr -a -- pip pip3
   abbr -a -- oskim 'open -a Skim'
   abbr -a -- ez 'exec fish'
+  abbr -a -- cd 'z'
 
   # git
   abbr -a -- gg 'git status'
