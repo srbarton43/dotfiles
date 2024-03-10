@@ -33,7 +33,8 @@ if status is-interactive
   abbr -a -- cd 'z'
 
   # git
-  abbr -a -- gg 'git status'
+  abbr -a -- gg 'git status -s'
+  abbr -a -- ggg 'git status'
   abbr -a -- gcm 'git commit -v'
   abbr -a -- ga 'git add'
   abbr -a -- gall 'git add .'
