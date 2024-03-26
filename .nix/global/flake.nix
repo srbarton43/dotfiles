@@ -44,6 +44,7 @@
         lazygit
         eza
         git
+        less
       ];
     };
   };
