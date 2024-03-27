@@ -51,7 +51,7 @@ api.nvim_create_autocmd(
 vim.g['better_escape_shortcut'] = { 'jk', 'kj', 'JK', 'KJ' }
 vim.opt.runtimepath:remove("/usr/share/vim/vimfiles") -- separate vim plugins from neovim in case vim still in use
 vim.o.signcolumn = "yes"
-vim.g.mapleader = ','
+vim.g.mapleader = ' '
 
 
 ---- luasnip selection mode
