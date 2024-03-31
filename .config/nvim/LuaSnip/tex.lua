@@ -151,7 +151,8 @@ s({trig="([^%a])mm", regTrig=true, wordTrig=false, snippetType="autosnippet"},
       f( function(_, snip) return snip.captures[1] end),
       d(1, get_visual),
     }
-  )
+  ),
+  {condition = !tex_utils.in_mathzone}
 ),
 
 -- Example: italic font implementing visual selection
@@ -172,6 +173,14 @@ s({trig = "tbf", dscr = "Expands 'tbf' into LaTeX's textit{} command."},
   )
 ),
 
+-- Example: typewriter font implementing visual selection
+s({trig = "ttt", dscr = "Expands 'tbf' into LaTeX's textit{} command."},
+  fmta("\\texttt{<>}",
+    {
+      d(1, get_visual),
+    }
+  )
+),
 
 -- expoonential auto
 s({trig = "([^%a])ee", regTrig=true, wordTrig=false, snippetType="autosnippet"},
