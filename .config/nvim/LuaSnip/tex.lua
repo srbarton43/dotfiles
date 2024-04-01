@@ -152,7 +152,7 @@ s({trig="([^%a])mm", regTrig=true, wordTrig=false, snippetType="autosnippet"},
       d(1, get_visual),
     }
   ),
-  {condition = !tex_utils.in_mathzone}
+  {condition = not tex_utils.in_mathzone}
 ),
 
 -- Example: italic font implementing visual selection
