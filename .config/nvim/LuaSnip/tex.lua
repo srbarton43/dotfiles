@@ -116,6 +116,18 @@ s({trig = "([^%a])ff", regTrig=true, wordTrig=false, name="frac", dscr="Fraction
   {condition=tex_utils.in_mathzone}
 ),
 
+-- \int(egral)
+s({trig = "int", wordTrig=true, name="int", dscr="Integral Env"},
+  fmta(
+    "\\int_{<>}^{<>}",
+    {
+      i(1),
+      i(2)
+    }
+  ),
+  {condition=tex_utils.in_mathzone}
+),
+
 -- Equation
 s({trig="beq", dscr="Equation environment w/o numbering", snippetType="autosnippet"},
   fmta(
