@@ -40,6 +40,7 @@ if status is-interactive
   abbr -a -- gall 'git add .'
   abbr -a -- gp 'git push'
   abbr -a -- gl 'git log --graph --one-line'
+  abbr -a -- cdgr 'cd (git root)' # cd to git root
 
   ## export variables
   set -xg LSCOLORS 'gxcxcxdxFxaDadabagacad'

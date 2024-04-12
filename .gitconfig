@@ -18,8 +18,10 @@
 
 [core]
   pager = delta
-	excludesFile = /Users/sbarton/dotfiles/.gitignore
+	excludesFile = ~/dotfiles/.gitignore
   editor = nvim
 
 [safe]
 	directory = /Users/sbarton/Desktop/ /Skewl/Darty/21F/COSC010/cs10
+[alias]
+	root = rev-parse --show-toplevel
