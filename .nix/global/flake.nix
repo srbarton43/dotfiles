@@ -45,6 +45,7 @@
         eza
         git
         less
+        fontforge
       ];
     };
   };
