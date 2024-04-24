@@ -9,7 +9,7 @@ function fzf_cd_widget
     --pointer='󰜴' --marker='󰄳 ' --multi --color='dark,fg+:red,hl:cyan,hl+:yellow,label:yellow,info:grey' \
     --border-label="Fuzzy CD Widget")
   if not test -z $selection
-    if cd "$selection" 2&> /dev/null
+    if z "$selection" 2&> /dev/null
       echo $selection
       echo "---------------------------------------------"
       ls -lG
