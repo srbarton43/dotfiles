@@ -6,6 +6,9 @@ add_newline = false
 style = 'bold fg:red'
 symbol = '󰌑'
 success_symbol = '󰌑'
+## alacritty ##
+#symbol = '󰌑 '
+#success_symbol = '󰌑 '
 format = '[$status $symbol]($style)'
 disabled = false
 
