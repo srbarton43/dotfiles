@@ -156,6 +156,16 @@ s({trig="beg", dscr="Create a new environment", },
   )
 ),
 
+s({trig = "([%s])bk", regTrig=true, wordTrig=false, snippetType="autosnippet"},
+  fmta("<>\\braket{<>}",
+    {
+      f( function(_, snip) return snip.captures[1] end),
+      i(1)
+    }
+  ),
+  {condition=tex_utils.in_mathzone}
+),
+
 -- Inline Math Mode
 s({trig="([^%a])mm", regTrig=true, wordTrig=false, snippetType="autosnippet"},
   fmta("<>$ <> $",
