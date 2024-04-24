@@ -46,6 +46,7 @@
         git
         less
         fontforge
+        tree
       ];
     };
   };
