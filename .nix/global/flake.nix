@@ -47,6 +47,8 @@
         less
         fontforge
         tree
+        poppler_utils
+        pkg-config
       ];
     };
   };
