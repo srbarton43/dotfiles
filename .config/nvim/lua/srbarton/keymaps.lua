@@ -46,3 +46,5 @@ vim.keymap.set('i', '<C-s>', '<C-o>:w<CR>', opts)
 
 -- open pdf viewer in insert mode 
 vim.keymap.set('i', '<C-v', '<C-o>:VimtexView', opts)
+
+vim.keymap.set('n', '<Leader>L', '<Cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/LuaSnip/"})<CR>')
