@@ -17,7 +17,7 @@ local date=$(date -I)
 local files=(.gitconfig .viminfo .vimrc .vim .zshrc .zsh .fdignore .nix)
 
 # config files or directories
-local config_files=(starship.toml fish nvim tmux)
+local config_files=(starship.toml fish nvim tmux zed/settings.json zed/keymap.json zed/themes/monokai.json)
 
 # add .config prefix to the path
 local with_prefix=("${config_files[@]/#/.config/}")
@@ -69,12 +69,14 @@ for file in "${with_prefix[@]}"; do
       echo "new name: $dest_prefix/$file.old-$date"
       mv "$dest_prefix/$file" "$dest_prefix/$file.old-$date"
       ((files_backed_up+=1))
+      echo "linking file"
+      ln -sf "$full_path/$file" "$dest_prefix/$file"
     fi
   else
     echo "file doesn't exist"
+    echo "linking file"
+    ln -sf "$full_path/$file" "$dest_prefix/$file"
   fi
-  echo "linking file"
-  ln -sf "$full_path/$file" "$dest_prefix/.config"
 done
 
 printf "number of files backed up: %d\n" $files_backed_up
