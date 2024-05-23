@@ -118,10 +118,11 @@ return {
   ),
 
   -- for siunitx package
-  s({ trig = "qty", snippetType = "autosnippet" },
+  s({ trig = "[^\\]qty", regTrig = true, wordTrig = false, name = "qty", snippetType = "autosnippet" },
     fmta(
-      "\\qty{<>}{<>}",
+      "<>\\qty{<>}{<>}",
       {
+        f(function(_, snip) return snip.captures[1] end),
         i(1, "number"),
         i(2, "unit")
       }
@@ -217,11 +218,12 @@ return {
 <>
 \[
   <>
-\]
+<>\]
       ]],
       {
         f(function(_, snip) return snip.captures[1] end),
         d(1, get_visual),
+        i(2),
       }
     ),
     { condition = not tex_utils.in_mathzone }
