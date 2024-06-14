@@ -89,10 +89,6 @@ return {
       -- config
     })
 
-    lspconfig.bashls.setup({
-
-    })
-
     lspconfig.ocamllsp.setup {}
 
     lspconfig.nixd.setup {}
