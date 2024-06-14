@@ -65,45 +65,45 @@ return {
   ),
 
   -- Examples of Greek letter snippets, autotriggered for efficiency
-  s({ trig = ";a", snippetType = "autosnippet" },
+  s({ trig = ";a", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     {
       t("\\alpha"),
     },
     { condition = tex_utils.in_mathzone }
   ),
-  s({ trig = ";b", snippetType = "autosnippet" },
+  s({ trig = ";b", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     {
       t("\\beta"),
     },
     { condition = tex_utils.in_mathzone }
   ),
-  s({ trig = ";g", snippetType = "autosnippet" },
+  s({ trig = ";g", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     {
       t("\\gamma"),
     },
     { condition = tex_utils.in_mathzone }
   ),
-  s({ trig = ";o", snippetType = "autosnippet" },
+  s({ trig = ";o", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     {
       t("\\omega"),
     },
     { condition = tex_utils.in_mathzone }
   ),
-  s({ trig = ";z", snippetType = "autosnippet" },
+  s({ trig = ";z", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     {
       t("\\zeta"),
     },
     { condition = tex_utils.in_mathzone }
   ),
 
-  s({ trig = ";t", snippetType = "autosnippet" },
+  s({ trig = ";t", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     {
       t("\\tau"),
     },
     { condition = tex_utils.in_mathzone }
   ),
 
-  s({ trig = ";p", snippetType = "autosnippet" },
+  s({ trig = ";p", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     {
       t("\\psi"),
     },
@@ -217,6 +217,22 @@ return {
       [[
 <>
 \[
+  <>
+<>\]
+      ]],
+      {
+        f(function(_, snip) return snip.captures[1] end),
+        d(1, get_visual),
+        i(2),
+      }
+    ),
+    { condition = not tex_utils.in_mathzone }
+  ),
+  -- Expanded Math Mode at start of line
+  s({ trig = "^MM", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    fmta(
+      [[
+<>\[
   <>
 <>\]
       ]],
