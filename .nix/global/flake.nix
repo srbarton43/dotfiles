@@ -50,6 +50,7 @@
         poppler_utils
         pkg-config
         qemu
+        gnupg
       ];
     };
   };
