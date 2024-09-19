@@ -51,6 +51,11 @@
         pkg-config
         qemu
         gnupg
+        hugo
+        nodejs_22
+        dart-sass
+        go
+        jq
       ];
     };
   };
