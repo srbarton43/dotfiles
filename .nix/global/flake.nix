@@ -56,6 +56,7 @@
         dart-sass
         go
         jq
+        pipx
       ];
     };
   };
