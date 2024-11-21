@@ -24,16 +24,16 @@ return {
 
     conf.center = {
       {
-        icon = "󰈞  ",
-        desc = "Find  File                              ",
-        action = ":Telescope find_files",
-        key = "<Leader>ff",
-      },
-      {
         icon = "  ",
         desc = "Recently opened files                   ",
         action = ":Telescope oldfiles",
         key = "<Leader>fr",
+      },
+      {
+        icon = "󰈞  ",
+        desc = "Find  File                              ",
+        action = ":Telescope find_files",
+        key = "<Leader>ff",
       },
       {
         icon = "󱆃  ",

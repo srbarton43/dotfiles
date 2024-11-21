@@ -1,10 +1,10 @@
 [
   {
     "bindings": {
-      "ctrl-h": "pane::ActivatePrevItem",
-      "ctrl-l": "pane::ActivateNextItem",
       "tab": "menu::SelectNext",
-      "shift-tab": "menu::SelectPrev"
+      "shift-tab": "menu::SelectPrev",
+      "ctrl-shift-h": "pane::ActivatePrevItem",
+      "ctrl-shift-l": "pane::ActivateNextItem"
     }
   },
   {
@@ -16,6 +16,7 @@
   {
     "context": "Editor && vim_mode == insert",
     "bindings": {
+      // switch to normal mode using "jk" or "kj"
       "j k": "vim::NormalBefore",
       "k j": "vim::NormalBefore"
     }
@@ -23,8 +24,15 @@
   {
     "context": "Editor && vim_mode == normal",
     "bindings": {
+      // diagnostics
       "] d": "editor::GoToDiagnostic",
-      "[ d": "editor::GoToPrevDiagnostic"
+      "[ d": "editor::GoToPrevDiagnostic",
+
+      // move between panes and tabs
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"]
     }
   },
   {

@@ -30,3 +30,6 @@ Parallels
 .Trash
 *Cache*
 .zsh_sessions
+flutter
+.cocoapods
+pub-cache

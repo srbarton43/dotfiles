@@ -178,13 +178,14 @@ return {
   s({ trig = "beg", dscr = "Create a new environment", },
     fmta(
       [[
-      \begin{<>}
+      \begin{<>}<>
         <>
       \end{<>}
     ]],
       {
         i(1, "env"),
         i(2),
+        i(3),
         rep(1), -- this node repeats insert node i(1)
       }
     )
@@ -192,6 +193,17 @@ return {
 
   s({ trig = "([%s])bk", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     fmta("<>\\braket{<>}",
+      {
+        f(function(_, snip) return snip.captures[1] end),
+        i(1)
+      }
+    ),
+    { condition = tex_utils.in_mathzone }
+  ),
+  
+  -- vector \vec{<>}
+  s({ trig = "([%s])ve", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
+    fmta("<>\\vec{<>}",
       {
         f(function(_, snip) return snip.captures[1] end),
         i(1)
@@ -308,18 +320,18 @@ return {
   ),
 
   -- dot and ddot functions
-  s({ trig = 'ddo', name = 'Second Derivative', snippetType = "autosnippet" },
-    fmta([[\ddot{<>}]],
-      i(1)
-    ),
-    { condition = tex_utils.in_mathzone }
-  ),
-  s({ trig = 'do', name = 'First Derivative', snippetType = "autosnippet" },
-    fmta([[\dot{<>}]],
-      i(1)
-    ),
-    { condition = tex_utils.in_mathzone }
-  ),
+  --s({ trig = 'ddo', name = 'Second Derivative', snippetType = "autosnippet" },
+  --  fmta([[\ddot{<>}]],
+  --    i(1)
+  --  ),
+  --  { condition = tex_utils.in_mathzone }
+  --),
+  --s({ trig = 'do', name = 'First Derivative', snippetType = "autosnippet" },
+  --  fmta([[\dot{<>}]],
+  --    i(1)
+  --  ),
+  --  { condition = tex_utils.in_mathzone }
+  --),
 
   -- -------------------------------------------------------------------------------
   -- item list stuff
@@ -343,15 +355,22 @@ return {
     { condition = tex_utils.in_mathzone }
   ),
   -- brackets
-  s({ trig = 'lrb', snippetType = "autosnippet" },
+  s({ trig = 'lr[', snippetType = "autosnippet" },
     fmta("\\left[ <> \\right]",
       i(1)
     ),
     { condition = tex_utils.in_mathzone }
   ),
   -- bars
-  s({ trig = 'lrB', snippetType = "autosnippet" },
+  s({ trig = 'lr|', snippetType = "autosnippet" },
     fmta("\\left| <> \\right|",
+      i(1)
+    ),
+    { condition = tex_utils.in_mathzone }
+  ),
+  -- curly
+  s({ trig = 'lr{', snippetType = "autosnippet" },
+    fmta("\\left\\{ <> \\right\\}",
       i(1)
     ),
     { condition = tex_utils.in_mathzone }
