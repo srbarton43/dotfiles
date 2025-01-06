@@ -10,53 +10,68 @@
     in pkgs.buildEnv {
       name = "home-packages";
       paths = with pkgs; [
-        pandoc
+        
+        # development productivity
         tmux
-        fish
-        meson
-        bash
         neovim
-        fzf
-        fd
-        bat
+        
+        # shell stuff
+        fish
+        bash
         starship
-        ripgrep
+
+        # build tools and programming languages
+        meson
         llvm
         bear
-        nixd
-        delta
-        ffmpeg
-        ncurses
-        ninja
-        bear
+        hugo
+        llvm
         bison
-        wget
-        darwin.trash
-        llvm
-        git-crypt
+        ninja
         cmake
-        pass
+        pkg-config
+        ncurses
+        
+        nodejs_22
+        go
+        pipx
+        dart-sass
+
+        # git 
+        git-crypt
+        delta # page for git diffs
+        git
+        
+        # cli productivity (most to least used)
+        zoxide
+        bat
+        ripgrep
+        fzf
+        tree
+        fd
+        less
+        htop
         fastfetch
         du-dust
         bottom
-        htop
-        zoxide
-        lazygit
         eza
-        git
-        less
-        fontforge
-        tree
-        poppler_utils
-        pkg-config
-        qemu
+
+        # cli utilities
+        ffmpeg
+        wget
+        darwin.trash
+        pass
         gnupg
-        hugo
-        nodejs_22
-        dart-sass
-        go
+        pandoc
+        lazygit
         jq
-        pipx
+        
+        # LSP
+        nixd
+
+        # other/should delete?
+        #fontforge
+        #poppler_utils
       ];
     };
   };
