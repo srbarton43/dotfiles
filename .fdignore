@@ -19,7 +19,7 @@ Packages
 .gitkraken
 .password-store
 Applications
-Library
+/Users/sbarton/Library
 tmp
 Applications (Parallels)
 .rustup
@@ -33,3 +33,4 @@ Parallels
 flutter
 .cocoapods
 pub-cache
+.npm
