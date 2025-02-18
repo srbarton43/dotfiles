@@ -28,6 +28,7 @@ if status is-interactive
   abbr -a -- lg 'lazygit'
   abbr -a -- matlab '/Applications/MATLAB_R2023a.app/bin/matlab -nodesktop'
   abbr -a -- py 'python3'
+  abbr -a -- tree 'tree -C'
 
   # git
   abbr -a -- gg 'git status -s'
