@@ -32,7 +32,17 @@
       "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
       "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
       "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
-      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"]
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+
+      // use Y I am used to
+      "shift-y": ["workspace::SendKeystrokes", "y $"]
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
     }
   },
   {
