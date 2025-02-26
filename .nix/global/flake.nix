@@ -69,6 +69,9 @@
         # LSP
         nixd
 
+        # libraries
+        libedit
+
         # other/should delete?
         #fontforge
         #poppler_utils
