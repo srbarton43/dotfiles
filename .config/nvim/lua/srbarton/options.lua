@@ -20,7 +20,7 @@ local options = {
   cursorlineopt = "number", -- ditto
   scrolloff = 3,            -- scroll offset at top and bottom
   undofile = true,          -- add undofile so can undo after close
-  clipboard = 'unnamedplus',-- sync clipboard between OS and nvim
+  clipboard = 'unnamed',-- sync clipboard between OS and nvim
 }
 
 for k, v in pairs(options) do
