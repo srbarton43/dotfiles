@@ -1,7 +1,7 @@
 
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
   outputs = {self, nixpkgs}: {
@@ -30,7 +30,6 @@
         ninja
         cmake
         pkg-config
-        ncurses
         
         nodejs_22
         go
@@ -61,16 +60,20 @@
         wget
         darwin.trash
         pass
+        spotifyd
+        ncpot
         gnupg
         pandoc
         lazygit
         jq
+        tlrc
         
         # LSP
         nixd
 
         # libraries
         libedit
+        ncurses
 
         # other/should delete?
         #fontforge
