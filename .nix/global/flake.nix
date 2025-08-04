@@ -61,7 +61,7 @@
         darwin.trash
         pass
         spotifyd
-        ncpot
+        ncspot
         gnupg
         pandoc
         lazygit

@@ -1,0 +1,34 @@
+
+[general]
+import = [
+  "~/.config/alacritty/themes/monokai_charcoal.toml"
+]
+
+[terminal]
+shell = "/Users/sbarton/.nix-profile/bin/fish"
+
+[window]
+dimensions = { columns = 80, lines = 25 }
+decorations = "Buttonless"
+padding = {x = 0, y = 0}
+dynamic_title = false
+decorations_theme_variant = "Dark"
+resize_increments = true
+
+[font]
+#normal = { family = "FiraCode Nerd Font", style = "Retina" }
+normal = { family = "Monaco Nerd Font", style = "Regular" }
+bold = { family = "MonegoLigaturesNerdFontPlusFontAwesomePlusFontAwesomeExtensionPlusOcticonsPlusPowerSymbolsPlusPomiconsPlusFontLogos(FontLinux)PlusMaterialDesignIcons Nerd Font", style = "Bold" }
+italic = { family = "Monego Nerd Font Fix", style = "Italic" }
+bold_italic = { family = "Monego Nerd Font Fix", style = "Italic" }
+#normal = { family = "Iosevka Nerd Font", style = "Regular" }
+#italic = { family = "Iosevka Nerd Font", style = "Italic" }
+#bold = { family = "Iosevka Nerd Font", style = "Bold" }
+size = 11.25
+#offset = { x = 1, y = 1 }
+#glyph_offset = { x = 0, y = 0 }
+builtin_box_drawing = false
+
+[colors]
+cursor = { text = "#191919", cursor = "#fd971f"}
+draw_bold_text_with_bright_colors = true
