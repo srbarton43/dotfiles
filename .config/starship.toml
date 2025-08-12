@@ -27,4 +27,4 @@ symbol = '*'
 style = 'red'
 format = '[$symbol]($style)'
 ignore_timeout = true
-shell = ['sh']
+shell = ['bash']

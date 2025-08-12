@@ -51,6 +51,6 @@ return {
     -- vim.g['vimtex_complete_enabled'] = 1
     -- vim.g['vimtex_compiler_progname'] = 'nvr'
     vim.g['vimtex_complete_close_braces'] = 1
-    vim.cmd('source /Users/sbarton/.config/nvim/lua/srbarton/plugins/vimtex.vim')
+    -- vim.cmd('source /Users/sbarton/.config/nvim/lua/srbarton/plugins/vimtex.vim')
   end
 }

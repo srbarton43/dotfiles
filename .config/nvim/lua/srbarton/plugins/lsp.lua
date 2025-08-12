@@ -4,6 +4,7 @@ return {
   config = function()
     -- Setup language servers.
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
 
     local venv_path = os.getenv('VIRTUAL_ENV')
     local py_path = nil
@@ -93,9 +94,13 @@ return {
 
     lspconfig.nixd.setup {}
 
-    lspconfig.vhdl_ls.setup{}
+    lspconfig.vhdl_ls.setup {}
 
-    lspconfig.dartls.setup{}
+    lspconfig.dartls.setup {}
+
+    lspconfig.cssls.setup {
+      capabilities = capabilities
+    }
 
     -- Global mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions

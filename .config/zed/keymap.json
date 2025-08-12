@@ -2,8 +2,8 @@
   {
     "bindings": {
       "tab": "menu::SelectNext",
-      "shift-tab": "menu::SelectPrev",
-      "ctrl-shift-h": "pane::ActivatePrevItem",
+      "shift-tab": "menu::SelectPrevious",
+      "ctrl-shift-h": "pane::ActivatePreviousItem",
       "ctrl-shift-l": "pane::ActivateNextItem"
     }
   },
@@ -26,37 +26,28 @@
     "bindings": {
       // diagnostics
       "] d": "editor::GoToDiagnostic",
-      "[ d": "editor::GoToPrevDiagnostic",
+      "[ d": "editor::GoToPreviousDiagnostic",
 
       // move between panes and tabs
-      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
-      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-
-      // use Y I am used to
-      "shift-y": ["workspace::SendKeystrokes", "y $"]
-    }
-  },
-  {
-    "context": "Terminal",
-    "bindings": {
-      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp"
     }
   },
   {
     "context": "Editor && (showing_code_actions || showing_completions)",
     "bindings": {
       "tab": "editor::ContextMenuNext",
-      "shift-tab": "editor::ContextMenuPrev"
+      "shift-tab": "editor::ContextMenuPrevious"
     }
   },
   {
     "context": "Workspace",
     "bindings": {
-      "cmd-b": "workspace::ToggleRightDock",
-      "cmd-r": "workspace::ToggleLeftDock"
+      "alt-b": "workspace::ToggleRightDock",
+      "alt-r": "workspace::ToggleLeftDock",
+      "alt-j": "workspace::ToggleBottomDock"
     }
   }
 ]

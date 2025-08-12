@@ -1,14 +1,12 @@
-# This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
   name = Samuel Barton
-	email = srbarton43@gmail.com
+  email = srbarton43@gmail.com
 [init]
-	defaultBranch = main
+  defaultBranch = main
 
 [mergetool "nvim"]
   cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
- 
+
 [merge]
   tool = nvim
 
@@ -18,10 +16,8 @@
 
 [core]
   pager = delta
-	excludesFile = ~/dotfiles/.gitignore
+  excludesFile = ~/.dotfiles/.gitignore
   editor = nvim
 
-[safe]
-	directory = /Users/sbarton/Desktop/ /Skewl/Darty/21F/COSC010/cs10
 [alias]
-	root = rev-parse --show-toplevel
+  root = rev-parse --show-toplevel

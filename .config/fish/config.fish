@@ -21,14 +21,13 @@ if status is-interactive
   abbr -a -- cl 'clear'
   abbr -a -- '...' 'cd ../../'
   abbr -a -- python python3
-  abbr -a -- pip pip3
   abbr -a -- oskim 'open -a Skim'
   abbr -a -- ez 'exec fish'
   abbr -a -- cd 'z'
   abbr -a -- lg 'lazygit'
   abbr -a -- matlab '/Applications/MATLAB_R2023a.app/bin/matlab -nodesktop'
   abbr -a -- py 'python3'
-  abbr -a -- tree 'tree -C'
+  abbr -a -- ssh 'TERM=xterm-256color ssh'
 
   # git
   abbr -a -- gg 'git status -s'
@@ -41,22 +40,12 @@ if status is-interactive
   abbr -a -- cdgr 'cd (git root)' # cd to git root
 
   ## export variables
-  set -xg LSCOLORS 'gxcxcxdxFxaDadabagacad'
-  #set -xg LS_COLORS "di=36:ln=32:so=32:pi=33:ex=1;35:bd=30;1;43:cd=30;43:su=30;41:sg=30;46:tw=30;42:ow=30;43" 
+  #set -xg LSCOLORS 'gxcxcxdxFxaDadabagacad'
+  set -xg LS_COLORS "di=36:ln=32:so=32:pi=33:ex=1;35:bd=30;1;43:cd=30;43:su=30;41:sg=30;46:tw=30;42:ow=30;43" 
 
   ## set custom keybinds
   fish_user_key_bindings
-
-  # enable fish completions for nix
-  source /nix/var/nix/profiles/default/share/fish/vendor_completions.d/nix.fish
-  
   # initialize the prompt
   zoxide init fish | source
   starship init fish | source
 end
-
-# opam configuration
-# source /Users/sbarton/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
-
-# Created by `pipx` on 2024-10-20 19:43:25
-set PATH $PATH /Users/sbarton/.local/bin

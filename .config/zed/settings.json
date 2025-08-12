@@ -7,33 +7,26 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "ssh_connections": [
-    {
-      "host": "babylon3.thayer.dartmouth.edu",
-      "username": "f005cz5",
-      "projects": [
-        {
-          "paths": [
-            "~/os/Homework-1"
-          ]
-        },
-        {
-          "paths": [
-            "~/tmp/CS58, Project 1A"
-          ]
-        }
-      ]
-    }
-  ],
+  "edit_predictions": {
+    "mode": "subtle",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null
+    },
+    "enabled_in_assistant": false
+  },
+  "auto_update_extensions": {
+    "vhdl": false
+  },
   "features": {
+    "edit_prediction_provider": "zed",
     "copilot": false
   },
   "vim_mode": true,
-  "theme": "Monokai Charcoal",
+  "theme": "Monokai",
   "ui_font_size": 16,
   "buffer_font_size": 12,
-  "buffer_font_family": "Monaco",
-  "buffer_font_fallbacks": ["Menlo"],
+  "buffer_font_family": "Monaco Nerd Font Mono",
   "buffer_font_features": {
     // Disable ligatures:
     "calt": false
@@ -49,9 +42,7 @@
   "terminal": { "shell": { "program": "fish" } },
   "telemetry": { "diagnostics": false, "metrics": false },
   "project_panel": {
-    "dock": "right",
-    // whether to show git status on files
-    "git_status": false
+    "dock": "right"
   },
   "collaboration_panel": {
     "button": false
@@ -64,7 +55,7 @@
     "enabled": false,
     "button": false
   },
-  "chat_panel": { "button": false, "dock": "left" },
+  "chat_panel": { "button": "never", "dock": "left" },
   "assistant": {
     "version": "2",
     "enabled": false,
@@ -72,12 +63,12 @@
     "button": false
   },
   "auto_update": false,
-  "lsp": {
-    "dart": {
-      "binary": {
-        "path": "/Users/sbarton/flutter/bin/dart",
-        "arguments": ["language-server", "--protocol=lsp"]
-      }
-    }
+  "languages": {
+    "VHDL": {
+      "tab_size": 4
+    },
+    "Rust": { "tab_size": 4 },
+    "JSON": { "show_edit_predictions": false },
+    "JSONC": { "show_edit_predictions": false }
   }
 }
