@@ -1,7 +1,9 @@
 #!/bin/bash
 
-swaylock \
-  --image /usr/share/backgrounds/cosmic/A_stormy_stellar_nursery_esa_379309.jpg \
-  --scaling fill \ 
-  --indicator-idle-visible \
-  --clock
+#swaylock --daemonize \
+#  --scaling fill \
+#  --image /usr/share/backgrounds/cosmic/orion_nebula_nasa_heic0601a.jpg \
+#  --show-failed-attempts \
+#  --clock --indicator
+
+swaylock --ignore-empty-password --show-failed-attempts --image /usr/share/backgrounds/cosmic/orion_nebula_nasa_heic0601a.jpg  --scaling fill --clock --indicator 

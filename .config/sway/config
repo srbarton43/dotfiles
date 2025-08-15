@@ -20,6 +20,8 @@ set $menu tofi-run | xargs swaymsg exec --
 set $drun tofi-drun | xargs swaymsg exec --
 set $background /usr/share/backgrounds/cosmic/A_stormy_stellar_nursery_esa_379309.jpg
 
+set $scripts /home/srbarton/.config/sway/scripts
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -100,8 +102,6 @@ input type:keyboard repeat_rate 30
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -217,7 +217,9 @@ bindsym $mod+r mode "resize"
 
 gaps inner 5
 default_border pixel 2
-#client.<class> <border> <background> <text> <indicator> <child_border> 
+
+# format:
+# client.<class> <border> <background> <text> <indicator> <child_border> 
 client.focused "#eab676" "#e28743" "#21130d" "#e28743"  "#e28743"
 client.focused_inactive "#23242a" "#2b2b2b" "#888888" "#000000" "#000000"
 client.unfocused "#2c2c2c" "#2b2b2b" "#888888" "#000000" "#000000"
@@ -258,34 +260,13 @@ bar {
     #}
 }
 
-# for using keyboard instead of mouse for sway warning/prompt program
-# AUR package swaynagmode
-set $nag exec swaynagmode
-mode "nag" {
-  bindsym {
-    Ctrl+d    mode "default"
-
-    Ctrl+c    $nag --exit
-    q         $nag --exit
-    Escape    $nag --exit
-
-    Return    $nag --confirm
-
-    Tab       $nag --select prev
-    Shift+Tab $nag --select next
-
-    Left      $nag --select next
-    Right     $nag --select prev
-
-    Up        $nag --select next
-    Down      $nag --select prev
-  }
-}
+bindsym $mod+Shift+e exec $term --config-file ~/.config/alacritty/alacritty-logout.toml --class fzf-launcher -e "$scripts/exit.sh"
 
 # clipboard
 exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
 
 # app basis
 for_window [app_id="org.gnome.Calculator"] floating enable
+for_window [app_id="fzf-launcher"] focus, floating enabled, border pixel 1
 
 include /etc/sway/config.d/*
