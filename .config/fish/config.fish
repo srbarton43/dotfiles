@@ -21,13 +21,12 @@ if status is-interactive
   abbr -a -- cl 'clear'
   abbr -a -- '...' 'cd ../../'
   abbr -a -- python python3
-  abbr -a -- oskim 'open -a Skim'
   abbr -a -- ez 'exec fish'
   abbr -a -- cd 'z'
   abbr -a -- lg 'lazygit'
-  abbr -a -- matlab '/Applications/MATLAB_R2023a.app/bin/matlab -nodesktop'
   abbr -a -- py 'python3'
   abbr -a -- ssh 'TERM=xterm-256color ssh'
+  abbr -a -- zed zeditor
 
   # git
   abbr -a -- gg 'git status -s'
