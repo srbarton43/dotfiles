@@ -7,21 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "edit_predictions": {
-    "mode": "subtle",
-    "copilot": {
-      "proxy": null,
-      "proxy_no_verify": null
-    },
-    "enabled_in_assistant": false
-  },
-  "auto_update_extensions": {
-    "vhdl": false
-  },
-  "features": {
-    "edit_prediction_provider": "zed",
-    "copilot": false
-  },
+  "disable_ai": true,
   "vim_mode": true,
   "theme": "Monokai",
   "ui_font_size": 16,
@@ -51,13 +37,8 @@
     "button": false,
     "dock": "left"
   },
-  "assistant_v2": {
-    "enabled": false,
-    "button": false
-  },
   "chat_panel": { "button": "never", "dock": "left" },
-  "assistant": {
-    "version": "2",
+  "agent": {
     "enabled": false,
     "dock": "left",
     "button": false
