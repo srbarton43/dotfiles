@@ -16,8 +16,7 @@ set $right l
 # Your preferred terminal emulator
 set $term alacritty
 # Your preferred application launcher
-set $menu tofi-run | xargs swaymsg exec --
-set $drun tofi-drun | xargs swaymsg exec --
+set $drun tofi-drun --font /home/srbarton/.local/share/fonts/Monaco_Linux.ttf --hint-font false | xargs swaymsg exec --
 set $background /usr/share/backgrounds/cosmic/A_stormy_stellar_nursery_esa_379309.jpg
 
 set $scripts /home/srbarton/.config/sway/scripts
@@ -50,9 +49,11 @@ output DP-1 resolution 3840x2160 scale 2.0 pos 0 0
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 exec swayidle -w \
-         timeout 480 'swaylock --daemonize --ignore-empty-password --show-failed-attempts --image $background --scaling fill --clock --indicator' \
-         timeout 485 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         timeout 300 'swaylock --daemonize --ignore-empty-password --show-failed-attempts --image $background --scaling fill --clock --indicator && swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 000000'
+
+bindsym $mod+Shift+s exec swaymsg "output DP-1 power toggle"
+
 
 ### Input configuration
 #
@@ -227,17 +228,10 @@ client.unfocused "#2c2c2c" "#2b2b2b" "#888888" "#000000" "#000000"
 #
 # Utilities:
 #
-    # Special keys to adjust volume via PulseAudio
-    bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
-    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
-    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
-    bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
-    # Special keys to adjust brightness via brightnessctl
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
     bindsym Print exec grim -g "$(slurp)"
 
+    # control volume with NP add and subtract keys
     bindsym --locked KP_Add exec ~/scripts/volume.sh raise
     bindsym --locked KP_Subtract exec ~/scripts/volume.sh lower
 
