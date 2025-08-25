@@ -6,34 +6,7 @@ return {
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-    local venv_path = os.getenv('VIRTUAL_ENV')
-    local py_path = nil
-    -- decide which python executable to use for mypy
-    if venv_path ~= nil then
-      py_path = venv_path .. "/bin/python3"
-    else
-      py_path = vim.g.python3_host_prog
-    end
     local lspconfig = require('lspconfig')
-    lspconfig.pylsp.setup {
-      settings = {
-        pylsp = {
-          plugins = {
-            black = { enables = true },
-            pylsp_mypy = {
-              enabled = true,
-              overrides = { "--python-executable", py_path, true },
-              report_progess = true,
-              live_mode = false
-            },
-            jedi_completion = {
-              fuzzy = true,
-              include_params = true,
-            },
-          }
-        }
-      }
-    }
     lspconfig.rust_analyzer.setup({
       capabilities = capabilities,
       filetypes = { "rust" },
@@ -51,6 +24,8 @@ return {
         },
       },
     })
+
+    lspconfig.basedpyright.setup{}
 
     lspconfig.clangd.setup({
       filetypes = { "c", "cpp", "cc" },
