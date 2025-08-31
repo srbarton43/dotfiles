@@ -228,8 +228,13 @@ client.unfocused "#2c2c2c" "#2b2b2b" "#888888" "#000000" "#000000"
 bindsym Print exec grim -g "$(slurp)"
 
 # control volume with NP add and subtract keys
-bindsym --locked KP_Add exec ~/scripts/volume.sh raise
-bindsym --locked KP_Subtract exec ~/scripts/volume.sh lower
+bindsym --locked KP_Multiply exec ~/scripts/volume.sh raise 5
+bindsym --locked KP_Divide exec ~/scripts/volume.sh lower 5
+bindsym --locked Shift+KP_Multiply exec ~/scripts/volume.sh raise 10
+bindsym --locked Shift+KP_Divide exec ~/scripts/volume.sh lower 10
+
+# play/pause
+bindsym --locked Pause exec playerctl play-pause
 
 # exit popup
 # uses custom alacritty config
@@ -249,5 +254,7 @@ exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/cli
 # floating on app basis
 for_window [app_id="org.gnome.Calculator"] floating enable
 for_window [app_id="fzf-launcher"] focus, floating enabled, border pixel 1
+
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 include /etc/sway/config.d/*
