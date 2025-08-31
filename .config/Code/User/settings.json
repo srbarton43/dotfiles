@@ -1,0 +1,155 @@
+{
+    "workbench.colorTheme": "Monokai",
+    "vim.cursorStylePerMode.insert": "underline",
+    "vim.cursorStylePerMode.normal": "block",
+    "vim.cursorStylePerMode.replace": "block-outline",
+    "vim.cursorStylePerMode.visual": "line",
+    "vim.cursorStylePerMode.visualblock": "line",
+    "vim.cursorStylePerMode.visualline": "line",
+    "editor.fontLigatures": false,
+    "editor.minimap.enabled": false,
+    "telemetry.telemetryLevel": "off",
+    "chat.commandCenter.enabled": false,
+    "git.confirmSync": false,
+    "keyboard.dispatch": "keyCode",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ],
+        },
+        {
+            "before": [
+                "k",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ],
+        },
+        {
+            "before": [
+                "<Esc>"
+            ],
+            "after": [
+                "<Esc>"
+            ],
+        },
+    ],
+    "zenMode.hideLineNumbers": false,
+    "git.openRepositoryInParentFolders": "never",
+    "window.zoomLevel": 1,
+    "workbench.activityBar.location": "hidden",
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "editor.lineNumbers": "relative",
+    "breadcrumbs.enabled": false,
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 2, ColumnLimit: 0}",
+    "editor.tabSize": 2,
+    "workbench.editor.editorActionsLocation": "titleBar",
+    "workbench.sideBar.location": "right",
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "<C-h>"
+            ],
+            "commands": [
+                "workbench.action.navigateLeft"
+            ]
+        },
+        {
+            "before": [
+                "<C-j>"
+            ],
+            "commands": [
+                "workbench.action.navigateDown"
+            ]
+        },
+        {
+            "before": [
+                "<C-k>"
+            ],
+            "commands": [
+                "workbench.action.navigateUp"
+            ]
+        },
+        {
+            "before": [
+                "<C-l>"
+            ],
+            "commands": [
+                "workbench.action.navigateRight"
+            ]
+        },
+        {
+            "before": [
+                "<C-s>"
+            ],
+            "commands": [
+                "workbench.action.files.save"
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "editor.action.showDefinitionPreviewHover"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "r"
+            ],
+            "commands": [
+                "editor.action.goToReferences"
+            ]
+        },
+        {
+            "before": [
+                "Y"
+            ],
+            "after": [
+                "y",
+                "$"
+            ],
+        },
+        {
+            "before": [
+                "]",
+                "d"
+            ],
+            "commands": [
+                {
+                    "command": "editor.action.marker.next"
+                }
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "d"
+            ],
+            "commands": [
+                {
+                    "command": "editor.action.marker.prev"
+                }
+            ]
+        },
+    ],
+    "update.mode": "manual",
+    "workbench.startupEditor": "none",
+    "workbench.colorCustomizations": {
+        "editorLineNumber.activeForeground": "#fd971f"
+    },
+    "terminal.integrated.defaultProfile.linux": "fish",
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
+    "vim.useSystemClipboard": true
+}
