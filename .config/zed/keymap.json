@@ -4,7 +4,19 @@
       "tab": "menu::SelectNext",
       "shift-tab": "menu::SelectPrevious",
       "ctrl-shift-h": "pane::ActivatePreviousItem",
-      "ctrl-shift-l": "pane::ActivateNextItem"
+      "ctrl-shift-l": "pane::ActivateNextItem",
+      "alt-p": "file_finder::Toggle",
+      "alt-b": "workspace::ToggleRightDock",
+      "alt-r": "workspace::ToggleLeftDock",
+      "alt-j": "workspace::ToggleBottomDock",
+      "ctrl-n": "menu::SelectNext",
+      "ctrl-p": "menu::SelectPrevious",
+
+      // move between panes and tabs
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp"
     }
   },
   {
@@ -12,6 +24,11 @@
     "bindings": {
       "ctrl-s": "workspace::Save"
     }
+  },
+  // remove ctrl-n to open new file
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": { "ctrl-n": null }
   },
   {
     "context": "Editor && vim_mode == insert",
@@ -22,32 +39,32 @@
     }
   },
   {
+    "context": "Picker || menu",
+    "bindings": {
+      "ctrl-n": "menu::SelectNext",
+      "ctrl-p": "menu::SelectPrevious"
+    }
+  },
+  { "context": "!Editor", "bindings": { "ctrl-b": null } },
+  {
     "context": "Editor && vim_mode == normal",
     "bindings": {
       // diagnostics
       "] d": "editor::GoToDiagnostic",
-      "[ d": "editor::GoToPreviousDiagnostic",
-
-      // move between panes and tabs
-      "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight",
-      "ctrl-j": "workspace::ActivatePaneDown",
-      "ctrl-k": "workspace::ActivatePaneUp"
+      "[ d": "editor::GoToPreviousDiagnostic"
     }
   },
   {
     "context": "Editor && (showing_code_actions || showing_completions)",
     "bindings": {
       "tab": "editor::ContextMenuNext",
-      "shift-tab": "editor::ContextMenuPrevious"
+      "shift-tab": "editor::ContextMenuPrevious",
+      "ctrl-n": "editor::ContextMenuNext",
+      "ctrl-p": "editor::ContextMenuPrevious"
     }
   },
   {
-    "context": "Workspace",
-    "bindings": {
-      "alt-b": "workspace::ToggleRightDock",
-      "alt-r": "workspace::ToggleLeftDock",
-      "alt-j": "workspace::ToggleBottomDock"
-    }
+    "context": "Terminal",
+    "bindings": { "ctrl-n": null, "ctrl-p": null }
   }
 ]
