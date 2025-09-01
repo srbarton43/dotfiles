@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
-cmd='build.sh'
+# builds edk2 in a docker image
+
+# name of edk2 build docker image
+docker_img='edk2-build' 
+
+#cmd basename
+cmd="$(basename $0)"
 
 echo "#######################"
 echo "$cmd: building edk2...."
