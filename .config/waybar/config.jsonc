@@ -1,6 +1,6 @@
 // -*- mode: jsonc -*-
 {
-    // "layer": "top", // Waybar at top layer
+    "layer": "top", // Waybar at top layer
     "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 24, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
@@ -10,38 +10,17 @@
         "sway/workspaces",
         "sway/mode",
         "sway/scratchpad",
-        "custom/media"
     ],
     "modules-center": [
       "clock"
     ],
     "modules-right": [
-        //"mpd",
         "idle_inhibitor",
         "pulseaudio",
-        "custom/media",
         "network",
         "cpu",
         "memory"
-        //"tray"
     ],
-    // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "warp-on-scroll": false,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -53,13 +32,9 @@
         "tooltip-format": "{app}: {title}"
     },
     "clock": {
-        // "timezone": "America/New_York",
         "interval": 1,
         "format": "{:%I:%M:%S --- %m-%d-%Y}",
         "tooltip": false
-        //"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        //"tooltip-format": "{:%Y-%m-%d}"
-        //"format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -71,11 +46,10 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "format-ethernet": "{ipaddr}/{cidr} 󰈀",
+        //"format-linked": "{ifname} (No IP)",
         "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "tooltip": false
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -89,9 +63,7 @@
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": "\f075f {icon} {format_source}",
-        "format-muted": "󰝟",
-        //"format-source": "{volume}% ",
-        //"format-source-muted": "",
+        "format-muted": "󰖁",
         "format-icons": {
             "headphone": "",
             "phone": "",
@@ -101,18 +73,5 @@
         },
         "on-click": "pavucontrol",
         "on-click-right": "~/scripts/volume.sh mute"
-    },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    }
     }
 }
