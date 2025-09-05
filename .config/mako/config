@@ -1,0 +1,12 @@
+default-timeout=3500
+ignore-timeout=1
+on-button-middle=dismiss-all
+
+font=Monaco 12
+background-color=#121212
+text-color=#86fa04
+border-color=#fd971f
+
+[urgency=high]
+text-color=#f92672
+background-color=#e6db74
