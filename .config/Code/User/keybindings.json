@@ -81,4 +81,12 @@
     "command": "-workbench.action.terminal.focusFind",
     "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
   },
+  {
+    "key": "alt+l",
+    "command": "workbench.action.nextEditor",
+  },
+  {
+    "key": "alt+h",
+    "command": "workbench.action.previousEditor",
+  }
 ]
