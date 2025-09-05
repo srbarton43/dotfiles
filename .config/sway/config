@@ -132,6 +132,9 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
+#cycle between worspaces
+bindsym $mod+ctrl+$left workspace prev
+bindsym $mod+ctrl+$right workspace next
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
@@ -239,6 +242,10 @@ bindsym --locked Pause exec playerctl play-pause
 # exit popup
 # uses custom alacritty config
 bindsym $mod+Shift+e exec $term --config-file ~/.config/alacritty/alacritty-logout.toml --class fzf-launcher -e "$scripts/exit.sh"
+
+# mako notifications
+bindsym $mod+z exec makoctl dismiss
+bindsym $mod+shift+z exec makoctl dismiss -a
 
 #
 # Status Bar:
