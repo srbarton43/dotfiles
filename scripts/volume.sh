@@ -8,7 +8,12 @@
 # 02/09/2025
 # https://ejmastnak.com/tutorials/arch/volume/#kernel-level-drivers-and-sound-servers
 
-if [ $# != 2 ]; then
+if [[ $# = 1 && $1 = 'mute' ]]; then
+  pactl set-sink-mute @DEFAULT_SINK@ toggle
+  exit 0
+fi
+
+if [[ $# != 2 ]]; then
   echo "Exactly two commands should be passed."
   echo "Usage should be: volume.sh <raise|lower|mute>"
   exit 1
@@ -28,8 +33,6 @@ if [ $1 == "raise" ]; then
   pactl set-sink-volume @DEFAULT_SINK@ "+${step}%"
 elif [ $1 == "lower" ]; then
   pactl set-sink-volume @DEFAULT_SINK@ "-${step}%"
-elif [ $1 == "mute" ]; then
-  pactl set-sink-mute @DEFAULT_SINK@ toggle
 else
   echo "Unrecognized parameter: ${1}"
   echo "Usage should be: volume.sh <raise|lower|mute>"
