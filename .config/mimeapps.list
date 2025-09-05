@@ -1,0 +1,19 @@
+[Default Applications]
+application/x-executable=Alacritty.desktop
+image/jpeg=imv.desktop
+image/png=imv.desktop
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop
+application/zip=userapp-unzip-6KNM52.desktop
+text/html=librewolf.desktop
+x-scheme-handler/http=librewolf.desktop
+x-scheme-handler/https=librewolf.desktop
+x-scheme-handler/about=librewolf.desktop
+x-scheme-handler/unknown=librewolf.desktop
+
+[Added Associations]
+application/x-executable=Alacritty.desktop;
+inode/directory=Alacritty.desktop;
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
+application/zip=userapp-unzip-6KNM52.desktop;
+text/x-csrc=dev.zed.Zed.desktop;
+application/xml=Vivado 2021.2_1744348525789.desktop;
