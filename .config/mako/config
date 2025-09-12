@@ -10,3 +10,10 @@ border-color=#fd971f
 [urgency=high]
 text-color=#f92672
 background-color=#e6db74
+
+[app-name=spotifyd]
+font=Monaco 10
+background-color=#191414
+border-color=#1ED760
+text-color=#1ED760
+width=500
