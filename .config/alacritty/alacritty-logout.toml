@@ -1,0 +1,16 @@
+
+[window]
+dimensions = { columns = 20, lines = 9 }
+decorations = "None"
+padding = {x = 0, y = 0}
+dynamic_title = false
+decorations_theme_variant = "None"
+resize_increments = true
+
+[font]
+normal = { family = "Monaco Nerd Font", style = "Regular" }
+size = 16
+
+[colors]
+cursor = { text = "#191919", cursor = "#fd971f"}
+draw_bold_text_with_bright_colors = true
