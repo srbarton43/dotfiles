@@ -1,6 +1,6 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Monaco, Roboto, Helvetica, Arial, sans-serif;
+    font-family: Monaco Nerd Font, Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
 }
 
@@ -24,15 +24,6 @@ window#waybar.solo {
     background-color: #FFFFFF;
 }
 */
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
-}
 
 button {
     /* Use box-shadow instead of border so the text isn't offset */
@@ -110,9 +101,9 @@ button:hover {
 }
 
 #clock {
-    background-color: #222a68;
+    /*background-color: #222a68;*/
     color: #FFFFFF;
-    opacity: 0.7;
+    opacity: 0.9;
 }
 
 label:focus {
