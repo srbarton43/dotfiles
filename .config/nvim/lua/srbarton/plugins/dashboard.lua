@@ -6,47 +6,41 @@ return {
     local dashboard = require("dashboard")
 
     local conf = {}
-    conf.header = {
-      "                                                       ",
-      "                                                       ",
-      "                                                       ",
-      " ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
-      " ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
-      " ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
-      " ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║",
-      " ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║",
-      " ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
-      "                                                       ",
-      "                                                       ",
-      "                                                       ",
-      "                                                       ",
-    }
+    --conf.header = {
+    --  "                                                       ",
+    --  "                                                       ",
+    --  "                                                       ",
+    --  " ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
+    --  " ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
+    --  " ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
+    --  " ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║",
+    --  " ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║",
+    --  " ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
+    --  "                                                       ",
+    --  "                                                       ",
+    --  "                                                       ",
+    --  "                                                       ",
+    --}
 
     conf.center = {
       {
         icon = "  ",
         desc = "Recently opened files                   ",
-        action = ":Telescope oldfiles",
+        action = ":FzfLua oldfiles",
         key = "<Leader>fr",
       },
       {
         icon = "󰈞  ",
         desc = "Find  File                              ",
-        action = ":Telescope find_files",
+        action = ":FzfLua files",
         key = "<Leader>ff",
       },
       {
         icon = "󱆃  ",
         desc = "Project grep                            ",
-        action = ":Telescope live_grep",
+        action = ":FzfLua live_grep",
         key = "<Leader>fg",
       },
-      --{
-      --  icon = "  ",
-      --  desc = "Open Nvim config                        ",
-      --  action = "tabnew $MYVIMRC | tcd %:p:h",
-      --  key = "<Leader>ev",
-      --},
       {
         icon = "  ",
         desc = "New file                                ",
