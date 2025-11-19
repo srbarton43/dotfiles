@@ -47,9 +47,6 @@ if status is-interactive
   ## set custom keybinds
   fish_user_key_bindings
 
-  # enable fish completions for nix
-  source /nix/var/nix/profiles/default/share/fish/vendor_completions.d/nix.fish
-  
   # initialize the prompt
   zoxide init fish | source
   starship init fish | source
