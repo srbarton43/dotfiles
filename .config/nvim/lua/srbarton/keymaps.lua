@@ -26,6 +26,11 @@ vim.keymap.set('n', '<C-s>', ':w<CR>', opts)
 -- lazy git
 vim.keymap.set('n', '<leader>lg', ':LazyGit<CR>', opts);
 
+-- fzf-lua
+vim.keymap.set('n', '<leader>ff', ':FzfLua files<CR>', opts)
+vim.keymap.set('n', '<leader>fr', ':FzfLua oldfiles<CR>', opts)
+vim.keymap.set('n', '<leader>fg', ':FzfLua live_grep<CR>', opts)
+
 -----------------
 -- Visual mode --
 -----------------
@@ -47,4 +52,4 @@ vim.keymap.set('i', '<C-s>', '<C-o>:w<CR>', opts)
 -- open pdf viewer in insert mode 
 vim.keymap.set('i', '<C-v', '<C-o>:VimtexView', opts)
 
-vim.keymap.set('n', '<Leader>L', '<Cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/LuaSnip/"})<CR>')
+--vim.keymap.set('n', '<Leader>L', '<Cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/LuaSnip/"})<CR>')
