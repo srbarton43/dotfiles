@@ -7,6 +7,12 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "languages": {
+    "Python": {
+      "tab_size": 4
+    }
+  },
+  "disable_ai": true,
   "ssh_connections": [
     {
       "host": "babylon3.thayer.dartmouth.edu",
@@ -29,7 +35,7 @@
     "copilot": false
   },
   "vim_mode": true,
-  "theme": "Monokai Charcoal",
+  "theme": "Monokai",
   "ui_font_size": 16,
   "buffer_font_size": 12,
   "buffer_font_family": "Monaco",
@@ -38,7 +44,7 @@
     // Disable ligatures:
     "calt": false
   },
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "file_scan_exclusions": ["**/.cache"],
   "git": {
     "inline_blame": {
@@ -64,9 +70,8 @@
     "enabled": false,
     "button": false
   },
-  "chat_panel": { "button": false, "dock": "left" },
-  "assistant": {
-    "version": "2",
+  "chat_panel": { "button": "never", "dock": "left" },
+  "agent": {
     "enabled": false,
     "dock": "left",
     "button": false
